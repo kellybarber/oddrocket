@@ -10,6 +10,14 @@
     components : {},
     data() {
       return {}
+    },
+    computed : {
+      homeData() {
+        return this.$cms.getPageData('home');
+      }
+    },
+    mounted() {
+      console.log('Home Loaded', this.homeData);
     }
   }
 </script>

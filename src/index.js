@@ -7,15 +7,18 @@ import utils  from './utils'
 Vue.use(utils);
 
 (async () => {
-  const app = new Vue({
-    el: '#app',
-    router,
-    store,
-    render: h => h(App),
-  });
+  try {
+    const app = new Vue({
+      router,
+      store,
+      render: h => h(App),
+    });
 
-  await app.$cms.init();
+    await app.$cms.init();
 
-  app.$mount();
+    app.$mount('#app');
+
+  } catch (error) {
+    console.error('App Setup Error: ', error);
+  }
 })();
-

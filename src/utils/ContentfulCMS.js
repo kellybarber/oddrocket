@@ -11,30 +11,44 @@ class ContentfulCMS {
     });
   }
 
-  init = async () => {
-    try {
-      const response = this.client.getEntries();
-      this.data = await response;
-      console.info('API Data: ', this.data);
-
-    } catch (error) {
-      console.error('Contentful Data Fetching Error: ', error)
-    }
+  init = () => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const response = this.client.getEntries();
+        this.data = await response;
+        resolve();
+      } catch (error) {
+        console.error('Contentful Data Fetching Error: ', error);
+        reject(error);
+      }
+    })
   };
 
   getEntriesByType = type => {
-    const entries = this.data.items;
-    return entries.filter(entry => entry.sys.contentType.sys.id === type);
+    return this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
+  };
+
+  getEntryByPage = pageName => {
+    const [ entry ] = this.data.items.filter(entry => entry.sys.contentType.sys.id === pageName);
+    return entry.fields;
   };
 
   getPageData = pageName => {
     switch (pageName) {
       case 'home':
-        return this.getEntriesByType('homePage');
+        return this.getEntryByPage('home');
+      case 'film':
+        return this.getEntryByPage('film');
+      case 'photography':
+        return this.getEntryByPage('photography');
+      case 'awards':
+        return this.getEntryByPage('awards');
+      case 'contact':
+        return this.getEntryByPage('contact');
       default:
-        return;
+        return 'Page Does Not Exist';
     }
-  }
+  };
 
 }
 
