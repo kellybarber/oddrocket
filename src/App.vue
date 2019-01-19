@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <MainHeader />
     <transition
       appear
       @enter="sectionEnter"
@@ -11,10 +12,12 @@
 </template>
 
 <script>
+  import MainHeader from './components/MainHeader';
   import { TweenMax } from 'gsap'
 
   export default {
     name: 'App',
+    components: { MainHeader },
     data() {
       return {}
     },

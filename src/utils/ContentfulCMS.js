@@ -24,27 +24,27 @@ class ContentfulCMS {
     })
   };
 
-  getEntriesByType = type => {
-    return this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
+  getEntryByType = type => {
+    const [ entry = {} ] = this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
+    return entry.fields;
   };
 
-  getEntryByPage = pageName => {
-    const [ entry ] = this.data.items.filter(entry => entry.sys.contentType.sys.id === pageName);
-    return entry.fields;
+  getEntriesByType = type => {
+    return this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
   };
 
   getPageData = pageName => {
     switch (pageName) {
       case 'home':
-        return this.getEntryByPage('home');
-      case 'film':
-        return this.getEntryByPage('film');
+        return this.getEntryByType('home');
+      case 'work':
+        return this.getEntryByType('work');
       case 'photography':
-        return this.getEntryByPage('photography');
+        return this.getEntryByType('photography');
       case 'awards':
-        return this.getEntryByPage('awards');
+        return this.getEntryByType('awards');
       case 'contact':
-        return this.getEntryByPage('contact');
+        return this.getEntryByType('contact');
       default:
         return 'Page Does Not Exist';
     }
