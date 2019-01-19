@@ -24,6 +24,20 @@ class ContentfulCMS {
     })
   };
 
+  cleanData = data => {
+    let cleanedData;
+
+    for (const key in data) {
+      const value = data[key];
+      if (Array.isArray(value)) {
+        const cleaned = value.map(item => ({ id: item.sys.id, ...item.fields }));
+        cleanedData = { ...data, [key] : [ ...cleaned ]}
+      }
+    }
+
+    return cleanedData;
+  };
+
   getEntryByType = type => {
     const [ entry = {} ] = this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
     return entry.fields;
@@ -38,7 +52,7 @@ class ContentfulCMS {
       case 'home':
         return this.getEntryByType('home');
       case 'work':
-        return this.getEntryByType('work');
+        return this.cleanData(this.getEntryByType('work'));
       case 'photography':
         return this.getEntryByType('photography');
       case 'awards':

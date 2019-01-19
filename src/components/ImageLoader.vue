@@ -1,12 +1,14 @@
 <template>
-  <transition name='fade'>
-    <img
-      v-show="isLoaded"
-      :src="srcProp"
-      :class="['image', classProp]"
-      @load="onImageLoad"
-    >
-  </transition>
+  <div :class="classProp">
+    <transition name='fade'>
+      <img
+        v-show="isLoaded"
+        :src="srcProp"
+        class="image"
+        @load="onImageLoad"
+      >
+    </transition>
+  </div>
 </template>
 
 <script>
