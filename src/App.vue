@@ -13,7 +13,7 @@
 
 <script>
   import MainHeader from './components/MainHeader';
-  import { TweenMax } from 'gsap'
+  import { TweenMax } from 'gsap';
 
   export default {
     name: 'App',

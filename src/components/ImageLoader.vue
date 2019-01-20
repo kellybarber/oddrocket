@@ -4,6 +4,7 @@
       <img
         v-show="isLoaded"
         :src="srcProp"
+        :style="{ 'object-fit' : size }"
         class="image"
         @load="onImageLoad"
       >
@@ -17,7 +18,8 @@
     components : {},
     props : {
       srcProp   : { type : String, default : '' },
-      classProp : { type : String, default : '' }
+      classProp : { type : String, default : '' },
+      size      : { type : String, default : 'contain' }
     },
     data() {
       return { isLoaded: false }
@@ -32,7 +34,7 @@
   .image {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   .fade-enter {
