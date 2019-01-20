@@ -6,7 +6,7 @@
       class-prop="card-image"
     />
     <div class="card-overlay">
-
+      <h2 class="btn-standard">{{ film.title }}</h2>
     </div>
   </div>
 </template>
@@ -47,10 +47,21 @@
   .card-image {
     height: 100%;
   }
+
+  .film-grid__card:hover > .card-overlay {
+    transform: translateY(0px);
+  }
+  .film-grid__card:hover > .card-overlay > h2 {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.3s;
+  }
   .card-overlay {
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     background-color: rgba(var(--black-rgba), 0.6);
@@ -59,9 +70,13 @@
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
   }
-
-  .film-grid__card:hover > .card-overlay {
-    transform: translateY(0px);
+  .card-overlay > h2 {
+    font-size: 2rem;
+    color: var(--white);
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
+
+
 
 </style>

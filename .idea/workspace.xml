@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29a10850-0f88-47da-b350-94e58bb1e641" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/styles/base/shared.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FilmGrid.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilmGrid.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FilmGridCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilmGridCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/abstracts/variables.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/abstracts/variables.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/base/shared.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/base/shared.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,20 +46,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/FilmGridCard.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+            <state relative-caret-position="223">
+              <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/styles/base/shared.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="55" />
+            <state relative-caret-position="23">
+              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -143,10 +139,10 @@
         <option value="$PROJECT_DIR$/src/components/ImageLoader.vue" />
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/styles/main.css" />
-        <option value="$PROJECT_DIR$/src/styles/base/shared.css" />
         <option value="$PROJECT_DIR$/src/components/FilmGrid.vue" />
         <option value="$PROJECT_DIR$/src/styles/abstracts/variables.css" />
         <option value="$PROJECT_DIR$/src/components/FilmGridCard.vue" />
+        <option value="$PROJECT_DIR$/src/styles/base/shared.css" />
       </list>
     </option>
   </component>
@@ -279,12 +275,12 @@
       <workItem from="1542492454285" duration="225000" />
       <workItem from="1542560063884" duration="5402000" />
       <workItem from="1546089471583" duration="8705000" />
-      <workItem from="1547909628429" duration="22387000" />
+      <workItem from="1547909628429" duration="22907000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45533000" />
+    <option name="totallyTimeSpent" value="46053000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
@@ -467,6 +463,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/abstracts/variables.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/FilmGrid.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -477,24 +480,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/abstracts/variables.css">
+    <entry file="file://$PROJECT_DIR$/src/components/FilmGridCard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="223">
+          <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/base/shared.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/FilmGridCard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+        <state relative-caret-position="23">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
         </state>
       </provider>
     </entry>

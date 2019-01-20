@@ -1,3 +1,6 @@
+.btn-standard {
+  position: relative;
+}
 .btn-standard::after {
   content: '';
   position: absolute;
