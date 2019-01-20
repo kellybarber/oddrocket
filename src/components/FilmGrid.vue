@@ -4,7 +4,7 @@
       <button
         v-for="(film, index) in filmTypes"
         :key="index"
-        class="filter-button"
+        class="filter-button btn-standard"
         @click="setFilter(film)"
       >
         {{ formatTitle(film) }}
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import { TimelineMax } from 'gsap';
+  import { TweenMax } from 'gsap';
   import FilmGridCard from './FilmGridCard';
 
   export default {
@@ -43,26 +43,25 @@
       filteredFilms() {
         if (this.selectedType === 'all') return this.films;
         return this.films.filter(film => film.type === this.selectedType);
-      }
+      },
     },
     mounted() {
       this.animateInCards();
     },
     methods : {
       setFilter(filmType) {
+        if (this.selectedType === filmType) return;
         this.selectedType = filmType;
+        this.$nextTick(this.animateInCards);
       },
       formatTitle(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       },
-      animateInCards(delay = 0) {
-        const { card : filmCards } = this.$refs;
+      animateInCards() {
+        const { card : cardComponents } = this.$refs;
+        const filmCards = cardComponents.map(card => card.$el);
 
-        const timeline = new TimelineMax({ delay });
-
-        filmCards.forEach(filmCard => {
-          timeline.fromTo(filmCard.$el, 0.5, { y : 40 }, { y : 0, ease : Sine.easeOut })
-        })
+        TweenMax.staggerFrom(filmCards, 0.8, { y: 90 }, 0.12);
       }
     }
   }
@@ -80,12 +79,14 @@
   .filter-button {
     position: relative;
     margin: 0 3rem;
+    padding: 0 0.5rem;
+    font-size: 1.2em;
     color: var(--white);
     background: none;
     border: none;
     cursor: pointer;
   }
-  .filter-button:not(:last-child)::after {
+  .filter-button:not(:last-child)::before {
     content: '';
     position: absolute;
     top: 0;
@@ -97,8 +98,8 @@
 
   .film-grid__container {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-    grid-auto-rows: 200px;
+    grid-template-columns: repeat( auto-fit, minmax(40rem, 1fr) );
+    grid-auto-rows: 220px;
   }
 
 </style>

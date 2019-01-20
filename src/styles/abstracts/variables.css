@@ -1,4 +1,10 @@
 :root {
+  /* Colours */
   --white: #fff;
   --black: #000;
+
+  --black-rgba: 0, 0, 0;
+
+  /* Z-Indeces */
+  --film-card-overlay: 4;
 }

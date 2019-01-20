@@ -1,0 +1,15 @@
+.btn-standard::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 0;
+  background-color: white;
+
+  transition: width 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.btn-standard:hover::after {
+  width: 100%;
+}
