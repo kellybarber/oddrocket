@@ -2,7 +2,9 @@
   <div class="main-header">
     <button
       class="nav-toggle"
-    >Nav</button>
+    >
+      Nav
+    </button>
     <ImageLoader
       :src-prop="logo"
       class-prop="header-logo"

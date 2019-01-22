@@ -6,13 +6,19 @@
       class-prop="card-image"
     />
     <div class="card-overlay">
-      <h2 class="btn-standard">{{ film.title }}</h2>
+      <button
+        class="card-button btn-standard"
+        @click="setOverlay(film)"
+      >
+        {{ film.title }}
+      </button>
     </div>
   </div>
 </template>
 
 <script>
   import ImageLoader from './ImageLoader';
+  import { mapMutations } from 'vuex';
 
   export default {
     name       : 'FilmGridCard',
@@ -30,7 +36,11 @@
       }
     },
     mounted() {
-      console.log(this.film);
+    },
+    methods : {
+      ...mapMutations([
+        'setOverlay'
+      ]),
     }
   }
 </script>
@@ -40,9 +50,7 @@
   .film-grid__card {
     position: relative;
     height: 100%;
-    /*max-width: 80rem;*/
     overflow: hidden;
-    cursor: pointer;
   }
   .card-image {
     height: 100%;
@@ -51,7 +59,7 @@
   .film-grid__card:hover > .card-overlay {
     transform: translateY(0px);
   }
-  .film-grid__card:hover > .card-overlay > h2 {
+  .film-grid__card:hover > .card-overlay > .card-button {
     opacity: 1;
     transition: opacity 0.2s ease 0.3s;
   }
@@ -70,11 +78,15 @@
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
   }
-  .card-overlay > h2 {
+  .card-button {
     font-size: 2rem;
     color: var(--white);
     opacity: 0;
     transition: opacity 0.2s ease;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
   }
 
 

@@ -22,8 +22,8 @@
 </template>
 
 <script>
-  import { TweenMax } from 'gsap';
   import FilmGridCard from './FilmGridCard';
+  import { TweenMax } from 'gsap';
 
   export default {
     name       : 'FilmGrid',
@@ -84,6 +84,7 @@
     color: var(--white);
     background: none;
     border: none;
+    outline: none;
     cursor: pointer;
   }
   .filter-button:not(:last-child)::before {
