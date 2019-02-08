@@ -8,11 +8,15 @@
   bottom: -4px;
   height: 1px;
   width: 0;
-  background-color: white;
+  background-color: var(--white);
 
   transition: width 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 .btn-standard:hover::after {
+  width: 100%;
+}
+
+.btn-standard-active::after {
   width: 100%;
 }

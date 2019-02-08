@@ -31,7 +31,7 @@ class ContentfulCMS {
       const value = data[key];
       if (Array.isArray(value)) {
         const cleaned = value.map(item => ({ id: item.sys.id, ...item.fields }));
-        cleanedData = { ...data, [key] : [ ...cleaned ]}
+        cleanedData = { ...data, [key] : [ ...cleaned ]};
       }
     }
 

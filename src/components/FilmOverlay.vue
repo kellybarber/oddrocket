@@ -1,15 +1,20 @@
 <template>
   <div class="film-overlay">
-    <h1>Overlay</h1>
+    <ImageLoader
+      :src-prop="filmData.heroImage.fields.file.url"
+      size="fill"
+      class-prop="film-overlay__image"
+    />
   </div>
 </template>
 
 <script>
   import { mapState, mapMutations } from 'vuex';
+  import ImageLoader from './ImageLoader';
 
   export default {
     name       : 'FilmOverlay',
-    components : {},
+    components : { ImageLoader },
     data() {
       return {}
     },
@@ -37,6 +42,9 @@
     height: 100%;
     width: 100%;
     background-color: white;
+  }
+  .film-overlay__image {
+    height: 60vh;
   }
 
 </style>

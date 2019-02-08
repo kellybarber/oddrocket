@@ -13,12 +13,9 @@
     data() {
       return {}
     },
-    computed : {
-      workData() { return this.$cms.getPageData('work'); }
+    created() {
+      this.workData = this.$cms.getPageData('work');
     },
-    mounted() {
-      console.log('Work Loaded', this.workData);
-    }
   }
 </script>
 

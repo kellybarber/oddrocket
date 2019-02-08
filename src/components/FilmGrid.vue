@@ -4,15 +4,17 @@
       <button
         v-for="(film, index) in filmTypes"
         :key="index"
-        class="filter-button btn-standard"
+        :class="['filter-button', 'btn-standard', { 'btn-standard-active' : film === selectedType }]"
         @click="setFilter(film)"
       >
         {{ formatTitle(film) }}
       </button>
     </div>
-    <div class="film-grid__container">
+    <div
+      ref="filmGrid"
+      class="film-grid__container"
+    >
       <FilmGridCard
-        ref="card"
         v-for="(film, index) in filteredFilms"
         :key="index"
         :film="film"
@@ -58,8 +60,7 @@
         return string.charAt(0).toUpperCase() + string.slice(1);
       },
       animateInCards() {
-        const { card : cardComponents } = this.$refs;
-        const filmCards = cardComponents.map(card => card.$el);
+        const filmCards = this.$refs.filmGrid.children;
 
         TweenMax.staggerFrom(filmCards, 0.8, { y: 90 }, 0.12);
       }
