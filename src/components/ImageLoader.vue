@@ -36,14 +36,4 @@
     width: 100%;
     height: 100%;
   }
-
-  .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-to {
-    opacity: 1;
-  }
-  .fade-enter-active {
-    transition: opacity 1s ease-in-out;
-  }
 </style>

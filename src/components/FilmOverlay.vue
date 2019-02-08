@@ -1,20 +1,19 @@
 <template>
   <div class="film-overlay">
-    <ImageLoader
-      :src-prop="filmData.heroImage.fields.file.url"
-      size="fill"
-      class-prop="film-overlay__image"
+    <VideoPlayer
+      :video-url="filmData.videoLink"
     />
   </div>
 </template>
 
 <script>
   import { mapState, mapMutations } from 'vuex';
+  import VideoPlayer from "./VideoPlayer";
   import ImageLoader from './ImageLoader';
 
   export default {
     name       : 'FilmOverlay',
-    components : { ImageLoader },
+    components : {VideoPlayer, ImageLoader },
     data() {
       return {}
     },
@@ -24,6 +23,7 @@
       })
     },
     mounted() {
+      // console.log(this.filmData);
     },
     methods : {
       ...mapMutations([
