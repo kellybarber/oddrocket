@@ -16,12 +16,33 @@ class ContentfulCMS {
       try {
         const response = this.client.getEntries();
         this.data = await response;
+        // console.log(this.client.getEntry("UXqHMJShAAyOGUU2so0OS"));
+        // console.log(this.client.getEntries({ 'content_type' : 'home' }));
         resolve();
       } catch (error) {
         console.error('Contentful Data Fetching Error: ', error);
         reject(error);
       }
     })
+  };
+
+  // getEntryById = async id => {
+  //   const { fields = null } = await this.client.getEntry(id);
+  //   return fields;
+  // };
+  //
+  // getEntryByType = contentId => {
+  //
+  // };
+
+
+  getEntryByType = type => {
+    const [ entry = {} ] = this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
+    return entry.fields;
+  };
+
+  getEntriesByType = type => {
+    return this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
   };
 
   cleanData = data => {
@@ -36,15 +57,6 @@ class ContentfulCMS {
     }
 
     return cleanedData;
-  };
-
-  getEntryByType = type => {
-    const [ entry = {} ] = this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
-    return entry.fields;
-  };
-
-  getEntriesByType = type => {
-    return this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
   };
 
   getPageData = pageName => {

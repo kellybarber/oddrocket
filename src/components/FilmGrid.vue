@@ -75,7 +75,7 @@
     justify-content: center;
     align-items: center;
     height: 5rem;
-    background-color: var(--black);
+    background-color: var(--main-blue);
   }
   .filter-button {
     position: relative;

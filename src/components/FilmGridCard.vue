@@ -5,14 +5,11 @@
       size="cover"
       class-prop="card-image"
     />
-    <div class="card-overlay">
-      <button
-        class="card-button btn-standard"
-        @click="setOverlay(film)"
-      >
+    <router-link :to="{ name: 'film', params: { id: film.id }}" class="card-overlay">
+      <span class="card-title btn-standard">
         {{ film.title }}
-      </button>
-    </div>
+      </span>
+    </router-link>
   </div>
 </template>
 
@@ -59,10 +56,11 @@
   .film-grid__card:hover > .card-overlay {
     transform: translateY(0px);
   }
-  .film-grid__card:hover > .card-overlay > .card-button {
+  .film-grid__card:hover > .card-overlay > .card-title {
     opacity: 1;
     transition: opacity 0.2s ease 0.3s;
   }
+
   .card-overlay {
     position: absolute;
     top: 0;
@@ -72,13 +70,21 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 0;
     background-color: rgba(var(--black-rgba), 0.6);
+    border: none;
+    text-decoration: none;
     z-index: var(--film-card-overlay);
+    cursor: pointer;
 
     transform: translateY(100%);
     transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
   }
-  .card-button {
+  .card-overlay:hover > .card-title::after {
+    width: 100%;
+  }
+
+  .card-title {
     font-size: 2rem;
     color: var(--white);
     opacity: 0;

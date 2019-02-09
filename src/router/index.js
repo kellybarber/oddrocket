@@ -1,27 +1,23 @@
 import Vue       from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from '../sections/Home';
-import Work from '../sections/Work';
+import routes from './routes';
 
 Vue.use(VueRouter);
 
-export default new VueRouter({
+ const router = new VueRouter({
+  base: '/',
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/work',
-      name: 'work',
-      component: Work
-    },
-    {
-      path     : '*',
-      redirect : '/'
-    }
-  ]
+  routes
 });
+
+ router.beforeEach((to, from, next) => {
+   router.loading = true;
+   next()
+ });
+
+ router.afterEach(() => {
+   router.loading = false;
+ });
+
+export default router;

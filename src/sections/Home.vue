@@ -1,23 +1,16 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <h1>CONTENT</h1>
   </div>
 </template>
 
 <script>
   export default {
-    name       : 'Home',
-    components : {},
     data() {
       return {}
     },
-    computed : {
-      homeData() {
-        return this.$cms.getPageData('home');
-      }
-    },
-    mounted() {
-      console.log('Home Loaded', this.homeData);
+    beforeRouteEnter(to, from, next) {
+      console.log('ENTER');
     }
   }
 </script>

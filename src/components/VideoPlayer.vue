@@ -2,11 +2,8 @@
   <div class="video-player">
     <transition name='fade'>
       <iframe
-        v-show="isLoaded"
         :src="videoLink"
-        frameborder="0"
-        allowfullscreen
-        @load="onImageLoad"
+        @load="onVideoLoad"
       ></iframe>
     </transition>
   </div>
@@ -22,8 +19,8 @@
     },
     data() {
       return {
-        videoLink: '',
-        isLoaded : false
+        videoLink : '',
+        isLoaded  : false
       }
     },
     async mounted() {
@@ -41,11 +38,27 @@
           return `http://www.youtube.com/embed/${videoId}`;
         }
       },
-      onImageLoad() { this.isLoaded = true }
+      onVideoLoad() {
+        this.isLoaded = true;
+      },
     }
   }
 </script>
 
 <style scoped>
+
+  .video-player {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 */
+    overflow: hidden;
+  }
+  .video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 
 </style>

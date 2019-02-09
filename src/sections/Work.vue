@@ -8,14 +8,13 @@
   import FilmGrid from '../components/FilmGrid';
 
   export default {
-    name       : 'Work',
     components : { FilmGrid },
-    data() {
-      return {}
-    },
     created() {
       this.workData = this.$cms.getPageData('work');
     },
+    async beforeRouteEnter(to, from, next) {
+      await setTimeout(next, 5000);
+    }
   }
 </script>
 

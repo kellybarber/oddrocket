@@ -25,7 +25,9 @@
       return { isLoaded: false }
     },
     methods : {
-      onImageLoad() { this.isLoaded = true; }
+      onImageLoad() {
+        this.isLoaded = true;
+      }
     }
   }
 </script>
