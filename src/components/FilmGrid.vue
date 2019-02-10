@@ -61,7 +61,6 @@
       },
       animateInCards() {
         const filmCards = this.$refs.filmGrid.children;
-
         TweenMax.staggerFrom(filmCards, 0.8, { y: 90 }, 0.12);
       }
     }

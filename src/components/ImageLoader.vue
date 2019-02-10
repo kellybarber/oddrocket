@@ -1,6 +1,6 @@
 <template>
   <div :class="classProp">
-    <transition name='fade'>
+    <transition appear name='fade'>
       <img
         v-show="isLoaded"
         :src="srcProp"

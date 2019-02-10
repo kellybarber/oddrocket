@@ -1,7 +1,8 @@
 <template>
   <div class="video-player">
-    <transition name='fade'>
+    <transition appear name='fade'>
       <iframe
+        v-show="isLoaded"
         :src="videoLink"
         @load="onVideoLoad"
       ></iframe>

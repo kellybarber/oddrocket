@@ -12,7 +12,6 @@ class ContentfulCMS {
 
   init = () => new Promise( async (resolve, reject) => {
     try {
-      await this.getEntryByType('home');
       await this.getEntryByType('mainHeader');
       resolve();
     } catch (error) {
