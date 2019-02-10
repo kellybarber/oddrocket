@@ -10,7 +10,6 @@ module.exports = merge(base, {
     rules: [
       {
         use: [
-          'style-loader',
           'vue-style-loader',
           'css-loader'
         ],

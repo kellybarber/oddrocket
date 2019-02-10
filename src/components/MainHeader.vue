@@ -18,9 +18,6 @@
   export default {
     name       : 'MainHeader',
     components : { ImageLoader },
-    data() {
-      return {}
-    },
     computed : {
       logo() {
         const { logo } = this.content;
@@ -38,7 +35,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 3rem;
+    padding: 2rem 2rem 2rem 5rem;
   }
   .nav-toggle {
     height: 5rem;
