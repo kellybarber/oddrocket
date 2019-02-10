@@ -12,7 +12,7 @@
       return {}
     },
     mounted() {
-      console.log(this.$route);
+      console.log(this.$cms.getData('film'));
     }
   }
 </script>

@@ -24,6 +24,6 @@ module.exports = merge(base, {
     new MiniCssExtractPlugin({
       filename: 'style.css'
     }),
-    new EnvironmentPlugin(['GITHUB_TOKEN'])
+    new EnvironmentPlugin(['CONTENTFUL_SPACE_ID', 'CONTENTFUL_ACCESS_TOKEN'])
   ]
 })

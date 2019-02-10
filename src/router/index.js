@@ -13,8 +13,7 @@ Vue.use(VueRouter);
 
  router.beforeEach( async (to, from, next) => {
    router.pageLoading = true;
-   console.log(to);
-   await router.app.$cms.getEntryByType(to.name);
+   await router.app.$cms.setPageData(to.name);
    next()
  });
 

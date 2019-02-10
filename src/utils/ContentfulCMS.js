@@ -1,12 +1,10 @@
 import * as contentful from 'contentful';
 
 class ContentfulCMS {
-  constructor({ spaceID, accessToken }) {
-    this.spaceID = spaceID;
-    this.accessToken = accessToken;
+  constructor({ space, accessToken }) {
     this.client = contentful.createClient({
-      space       : this.spaceID,
-      accessToken : this.accessToken
+      space,
+      accessToken
     });
 
     this.data = {};
@@ -23,9 +21,18 @@ class ContentfulCMS {
     }
   });
 
+  getData = key => {
+    if (this.data[key]) return this.data[key];
+    return undefined;
+  };
+
   getEntryById = async id => {
-    const { fields = null } = await this.client.getEntry(id);
-    return fields;
+    try {
+      const { fields = null } = await this.client.getEntry(id);
+      return fields;
+    } catch (error) {
+      console.error('Get Entry By Id Error: ', error);
+    }
   };
 
   getEntryByType = contentId => new Promise( async (resolve, reject) => {
@@ -70,23 +77,20 @@ class ContentfulCMS {
     return workingData;
   };
 
-  getPageData = pageName => {
+  setPageData = async pageName => {
     switch (pageName) {
       case 'home':
-        return this.getEntryByType('home');
+        return await this.getEntryByType('home');
       case 'work':
-        return this.cleanData(this.getEntryByType('work'));
-      case 'photography':
-        return this.getEntryByType('photography');
-      case 'awards':
-        return this.getEntryByType('awards');
+        return await this.getEntryByType('work');
+      case 'film':
+        return await this.getEntriesByType('film');
       case 'contact':
-        return this.getEntryByType('contact');
+        return await this.getEntryByType('contact');
       default:
         return 'Page Does Not Exist';
     }
   };
-
 }
 
 export default ContentfulCMS;

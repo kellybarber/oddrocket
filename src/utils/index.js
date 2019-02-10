@@ -1,8 +1,8 @@
 import ContentfulCMS from './ContentfulCMS';
 
 const contentfulCMS = new ContentfulCMS({
-  spaceID     : 'cvhpm3t2b9ed',
-  accessToken : '1295782f7d5460e938602838a4c8c3b44faaff0d1b7d8a84280f16e860a1cba9'
+  space       : process.env.CONTENTFUL_SPACE_ID,
+  accessToken : process.env.CONTENTFUL_ACCESS_TOKEN
 });
 
 export default {

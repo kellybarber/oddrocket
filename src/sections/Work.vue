@@ -11,6 +11,7 @@
     components : { FilmGrid },
     created() {
       this.content = this.$cms.data.work;
+      console.log(this.$cms.data);
     }
   }
 </script>
