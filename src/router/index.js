@@ -11,13 +11,15 @@ Vue.use(VueRouter);
   routes
 });
 
- router.beforeEach((to, from, next) => {
-   router.loading = true;
+ router.beforeEach( async (to, from, next) => {
+   router.pageLoading = true;
+   console.log(to);
+   await router.app.$cms.getEntryByType(to.name);
    next()
  });
 
  router.afterEach(() => {
-   router.loading = false;
+   router.pageLoading = false;
  });
 
 export default router;

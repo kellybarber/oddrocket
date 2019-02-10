@@ -1,6 +1,6 @@
 <template>
   <div class="work">
-    <FilmGrid :films="workData.films" />
+    <FilmGrid :films="content.films" />
   </div>
 </template>
 
@@ -10,10 +10,7 @@
   export default {
     components : { FilmGrid },
     created() {
-      this.workData = this.$cms.getPageData('work');
-    },
-    async beforeRouteEnter(to, from, next) {
-      await setTimeout(next, 5000);
+      this.content = this.$cms.data.work;
     }
   }
 </script>

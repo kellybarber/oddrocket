@@ -4,59 +4,70 @@ class ContentfulCMS {
   constructor({ spaceID, accessToken }) {
     this.spaceID = spaceID;
     this.accessToken = accessToken;
-
     this.client = contentful.createClient({
       space       : this.spaceID,
       accessToken : this.accessToken
     });
+
+    this.data = {};
   }
 
-  init = () => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const response = this.client.getEntries();
-        this.data = await response;
-        // console.log(this.client.getEntry("UXqHMJShAAyOGUU2so0OS"));
-        // console.log(this.client.getEntries({ 'content_type' : 'home' }));
-        resolve();
-      } catch (error) {
-        console.error('Contentful Data Fetching Error: ', error);
-        reject(error);
-      }
-    })
+  init = () => new Promise( async (resolve, reject) => {
+    try {
+      await this.getEntryByType('home');
+      await this.getEntryByType('mainHeader');
+      resolve();
+    } catch (error) {
+      console.error('Contentful Data Fetching Error: ', error);
+      reject(error);
+    }
+  });
+
+  getEntryById = async id => {
+    const { fields = null } = await this.client.getEntry(id);
+    return fields;
   };
 
-  // getEntryById = async id => {
-  //   const { fields = null } = await this.client.getEntry(id);
-  //   return fields;
-  // };
-  //
-  // getEntryByType = contentId => {
-  //
-  // };
+  getEntryByType = contentId => new Promise( async (resolve, reject) => {
+    try {
+      const { items : [ item ] } = await this.client.getEntries({ 'content_type' : contentId });
+      this.data[contentId] = this.cleanData(item);
+      resolve();
+    } catch (error) {
+      console.error('Get Entry By Type Error: ', error);
+      reject(error);
+    }
+  });
 
-
-  getEntryByType = type => {
-    const [ entry = {} ] = this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
-    return entry.fields;
-  };
-
-  getEntriesByType = type => {
-    return this.data.items.filter(entry => entry.sys.contentType.sys.id === type);
-  };
+  getEntriesByType = contentId => new Promise( async (resolve, reject) => {
+    try {
+      const { items } = await this.client.getEntries({ 'content_type' : contentId });
+      this.data[contentId] = items.map(item => this.cleanData(item));
+      resolve();
+    } catch (error) {
+      console.error('Get Entries By Type Error: ', error);
+      reject(error);
+    }
+  });
 
   cleanData = data => {
-    let cleanedData;
+    let workingData = data;
 
-    for (const key in data) {
-      const value = data[key];
-      if (Array.isArray(value)) {
-        const cleaned = value.map(item => ({ id: item.sys.id, ...item.fields }));
-        cleanedData = { ...data, [key] : [ ...cleaned ]};
+    if (!!workingData.sys && !!workingData.fields) {
+      workingData = { id: data.sys.id, ...data.fields }
+    }
+
+    for (const key in workingData) {
+      const value = workingData[key];
+      if (!!value.sys && !!value.fields) {
+        workingData = { ...workingData, [key] : { id: value.sys.id, ...value.fields }};
+      } else if (Array.isArray(value)) {
+        const arrayData = value.map(item => ({ id: item.sys.id, ...item.fields }));
+        workingData = { ...workingData, [key] : arrayData};
       }
     }
 
-    return cleanedData;
+    return workingData;
   };
 
   getPageData = pageName => {

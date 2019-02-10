@@ -7,7 +7,7 @@
     </transition>
 
     <div
-      v-if="$router.loading"
+      v-if="$router.pageLoading"
       class="loader"
     ></div>
   </div>
@@ -26,9 +26,6 @@
       fadeOut(el) {
         TweenMax.fromTo(el, 1, { autoAlpha : 1 }, { autoAlpha : 0 });
       }
-    },
-    mounted() {
-      console.log(this.$router.loading);
     }
   }
 </script>

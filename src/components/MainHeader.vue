@@ -22,16 +22,13 @@
       return {}
     },
     computed : {
-      headerData() {
-        return this.$cms.getEntryByType('mainHeader')
-      },
       logo() {
-        const { logo } = this.headerData;
-        return logo ? logo.fields.file.url : '';
+        const { logo } = this.content;
+        return logo ? logo.file.url : '';
       }
     },
-    mounted() {
-      // console.log('Header Loaded', this.headerData);
+    created() {
+      this.content = this.$cms.data.mainHeader;
     }
   }
 </script>
