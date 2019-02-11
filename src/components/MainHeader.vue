@@ -5,10 +5,12 @@
     >
       Nav
     </button>
-    <ImageLoader
-      :src-prop="logo"
-      class-prop="header-logo"
-    />
+    <router-link to="/">
+      <ImageLoader
+        :src-prop="logo"
+        class-prop="header-logo"
+      />
+    </router-link>
   </div>
 </template>
 
@@ -18,10 +20,13 @@
   export default {
     name       : 'MainHeader',
     components : { ImageLoader },
+    data() {
+      return {}
+    },
     computed : {
       logo() {
-        const { logo } = this.content;
-        return logo ? logo.file.url : '';
+        const { logoLight } = this.content;
+        return logoLight ? logoLight.file.url : '';
       }
     },
     created() {
@@ -35,8 +40,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 2rem 2rem 5rem;
+    padding: 1.6rem 3rem 1.6rem 5rem;
+    background-color: var(--off-black);
   }
+
   .nav-toggle {
     height: 5rem;
     width: 5rem;

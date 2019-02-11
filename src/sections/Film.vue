@@ -3,13 +3,17 @@
     <div class="video-wrapper">
       <VideoPlayer :video-url="filmData.videoLink" />
     </div>
-    <div ref="filmCopy" class="copy-wrapper">
-      <h1 class="title">{{ filmData.title }}</h1>
-      <h2 class="description">{{ filmData.description }}</h2>
-      <h3 class="directors">Director: {{ filmData.directors }}</h3>
-      <h3 class="writers">Writers: {{ filmData.writers }}</h3>
-      <p class="copy">{{ filmData.mainText }}</p>
+    <div class="content-wrapper">
+      <div class="copy-container">
+        <h1 class="title copy">{{ filmData.title }}</h1>
+        <h2 class="description copy">{{ filmData.description }}</h2>
+        <h3 class="directors, copy">Director: {{ filmData.directors }}</h3>
+        <!--<h3 class="writers">Writers: {{ filmData.writers }}</h3>-->
+        <p class="main-copy copy">{{ filmData.mainText }}</p>
+      </div>
+
       <div class="sidebar"></div>
+      <div class="footer"></div>
     </div>
   </div>
 </template>
@@ -28,7 +32,7 @@
       }
     },
     mounted() {
-      const { children : { length, ...nodes }} = this.$refs.filmCopy;
+      const nodes = document.getElementsByClassName('copy');
       observer(nodes);
     }
   }
@@ -41,39 +45,68 @@
     background-color: var(--black);
   }
 
-  .copy-wrapper {
+  .content-wrapper {
+    padding: 0 12% 4%;
+    background-color: var(--black);
+  }
+  .copy-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px 10%;
-
-    height: 500px;
-    justify-content: space-around;
+    background-color: var(--white);
   }
 
   .title {
-    font-size: 12rem;
-    font-weight: 100;
     text-align: center;
-    margin-bottom: 5rem;
+    margin: 18rem 0 10rem;
   }
-
   .description {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+  }
+  .main-copy {
+    columns: 10rem 2;
+    column-gap: 16%;
+    column-rule: 1px solid lightgray;
+    width: 80%;
+    margin: 18rem 0 28rem;
   }
 
   .copy {
-    columns: 2;
+    opacity: 0;
+  }
+  .slide-in {
+    opacity: 1;
+    animation: slideIn 0.8s ease-out;
+  }
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(8rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .sidebar{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 12%;
-    background-color: var(--light-blue);
-  }
+  /*.sidebar{*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*height: 100%;*/
+    /*width: 12%;*/
+    /*background-color: var(--light-blue);*/
+    /*z-index: 2;*/
+  /*}*/
+  /*.footer {*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*height: 0;*/
+    /*width: 100%;*/
+    /*padding-top: 4%;*/
+    /*background-color: var(--light-blue);*/
+  /*}*/
 
 </style>

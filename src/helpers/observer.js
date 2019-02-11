@@ -2,9 +2,9 @@ export default (nodes) => {
   const intersectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.intersectionRatio > 0) {
-        console.log('in the view');
+        entry.target.classList.add('slide-in');
       } else {
-        console.log('out of view');
+        entry.target.classList.remove('slide-in');
       }
     });
   });
