@@ -37,7 +37,7 @@
         }
         if ((/youtube/g).test(this.videoUrl)) {
           const videoId = this.videoUrl.match(/v=(.*)/)[1];
-          return `http://www.youtube.com/embed/${videoId}`;
+          return `https://www.youtube.com/embed/${videoId}`;
         }
       },
       onVideoLoad() {
