@@ -12,6 +12,10 @@ body {
   box-sizing: border-box;
 }
 
+.section {
+  padding-top: var(--header-height);
+}
+
 .loader {
   position: absolute;
   top: 0;

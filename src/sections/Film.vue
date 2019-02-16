@@ -1,13 +1,13 @@
 <template>
-  <div class="film">
+  <div class="section film">
     <div class="video-wrapper">
       <VideoPlayer :video-url="filmData.videoLink" />
     </div>
     <div class="content-wrapper">
-      <div class="copy-container">
+      <div ref="copyContainer" class="copy-container">
         <h1 class="title copy">{{ filmData.title }}</h1>
         <h2 class="description copy">{{ filmData.description }}</h2>
-        <h3 class="directors, copy">Director: {{ filmData.directors }}</h3>
+        <h3 class="directors copy">Director: {{ filmData.directors }}</h3>
         <!--<h3 class="writers">Writers: {{ filmData.writers }}</h3>-->
         <p class="main-copy copy">{{ filmData.mainText }}</p>
       </div>
@@ -32,8 +32,8 @@
       }
     },
     mounted() {
-      const nodes = document.getElementsByClassName('copy');
-      observer(nodes);
+      const nodes = Object.values(this.$refs.copyContainer.children);
+      observer(nodes, 'text-enter');
     }
   }
 </script>
@@ -41,13 +41,13 @@
 <style scoped>
 
   .video-wrapper {
-    padding: 0 12%;
+    padding: 0 10%;
     background-color: var(--black);
   }
 
   .content-wrapper {
-    padding: 0 12% 4%;
-    background-color: var(--black);
+    padding: 0 10% 4%;
+    background-color: var(--white);
   }
   .copy-container {
     position: relative;
@@ -71,42 +71,5 @@
     width: 80%;
     margin: 18rem 0 28rem;
   }
-
-  .copy {
-    opacity: 0;
-  }
-  .slide-in {
-    opacity: 1;
-    animation: slideIn 0.8s ease-out;
-  }
-  @keyframes slideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(8rem);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /*.sidebar{*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*height: 100%;*/
-    /*width: 12%;*/
-    /*background-color: var(--light-blue);*/
-    /*z-index: 2;*/
-  /*}*/
-  /*.footer {*/
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*height: 0;*/
-    /*width: 100%;*/
-    /*padding-top: 4%;*/
-    /*background-color: var(--light-blue);*/
-  /*}*/
 
 </style>

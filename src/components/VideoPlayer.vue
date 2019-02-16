@@ -26,6 +26,7 @@
     },
     async mounted() {
       this.videoLink = await this.getVideoLink();
+      console.log(this.videoUrl);
     },
     methods : {
       async getVideoLink() {

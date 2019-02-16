@@ -8,6 +8,9 @@
 
   --black-rgba: 0, 0, 0;
 
+  /* Heights */
+  --header-height: 10.6rem;
+
   /* Z-Indeces */
   --film-card-overlay: 4;
 }

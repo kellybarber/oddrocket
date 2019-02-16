@@ -1,5 +1,5 @@
 <template>
-  <div class="section home">
+  <div class="section contact">
   </div>
 </template>
 
@@ -12,12 +12,5 @@
 </script>
 
 <style scoped>
-
-  .home {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    background-color: var(--black);
-  }
 
 </style>

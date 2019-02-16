@@ -1,15 +1,13 @@
-export default (nodes) => {
+export default (nodes, animation) => {
   const intersectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('slide-in');
+        entry.target.classList.add(animation);
       } else {
-        entry.target.classList.remove('slide-in');
+        entry.target.classList.remove(animation);
       }
     });
   });
-  for(const key in nodes) {
-    const node = nodes[key];
-    intersectionObserver.observe(node);
-  }
+
+  nodes.forEach(node => intersectionObserver.observe(node));
 }

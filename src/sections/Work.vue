@@ -1,5 +1,5 @@
 <template>
-  <div class="work">
+  <div class="section work">
     <FilmGrid :films="content.films" />
   </div>
 </template>
