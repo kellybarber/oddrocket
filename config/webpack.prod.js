@@ -12,7 +12,6 @@ module.exports = merge(base, {
       {
         use: [
           MiniCssExtractPlugin.loader,
-          'vue-style-loader',
           'css-loader'
         ],
         test: /\.css$/

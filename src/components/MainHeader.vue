@@ -8,7 +8,7 @@
     </button>
     <router-link to="/">
       <ImageLoader
-        :src-prop="logo"
+        :src-prop="content.logoLight.file.url"
         class-prop="header-logo"
       />
     </router-link>

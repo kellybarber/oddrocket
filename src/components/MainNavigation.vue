@@ -45,7 +45,6 @@
 
   .nav-link {
     text-decoration: none;
-
   }
 
 </style>

@@ -26,10 +26,10 @@
     },
     methods : {
       fadeIn(el) {
-        TweenMax.fromTo(el, 1, { autoAlpha : 0 }, { autoAlpha : 1 });
+        TweenMax.fromTo(el, 1.5, { autoAlpha : 0 }, { autoAlpha : 1 });
       },
       fadeOut(el) {
-        TweenMax.fromTo(el, 1, { autoAlpha : 1 }, { autoAlpha : 0 });
+        TweenMax.fromTo(el, 1.5, { autoAlpha : 1 }, { autoAlpha : 0 });
       }
     }
   }

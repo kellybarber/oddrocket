@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js --hot",
     "build": "webpack --config config/webpack.prod.js",
-    "start": "node server/index.js",
-    "heroku-postbuild": "npm run build"
+    "start": "node server/index.js"
   },
   "author": "Kelly Barber",
   "license": "MIT",
