@@ -40,7 +40,7 @@
     width: 300px;
     padding: 10.6rem 5rem 0 5rem;
     background-color: var(--white);
-    z-index: 5;
+    z-index: 3;
   }
 
   .nav-link {

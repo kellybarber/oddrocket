@@ -6,7 +6,7 @@
     >
       Nav
     </button>
-    <router-link to="/">
+    <router-link to="/" class="nav-link">
       <ImageLoader
         :src-prop="content.logoLight.file.url"
         class-prop="header-logo"
@@ -44,7 +44,7 @@
     background-color: var(--off-black);
   }
   .home {
-    background: none;
+    background-color: transparent;
   }
 
   .nav-toggle {
@@ -52,6 +52,11 @@
     width: 5rem;
     margin-left: 5rem;
     border-radius: 50%;
+    outline: none;
+    z-index: 6;
+  }
+
+  .nav-link {
     z-index: 6;
   }
   .header-logo {
