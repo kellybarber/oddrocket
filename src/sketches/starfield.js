@@ -1,15 +1,21 @@
 export const starField = sketch => {
-  const button = document.getElementById('our-work-button').getBoundingClientRect(),
-        buttonX = button.x + (button.width / 2),
-        buttonY = button.y + (button.height / 2),
-        distMax = sketch.dist(buttonX, buttonY, window.innerWidth / 2, window.innerHeight);
-
   let stars = [],
-      speed;
+      speed,
+      button,
+      buttonX,
+      buttonY,
+      distMax,
+      distToButton,
+      distCapped;
 
   sketch.setup = function() {
     const canvas = sketch.createCanvas(window.innerWidth, window.innerHeight);
     canvas.parent('home');
+
+    button  = document.getElementById('our-work-button').getBoundingClientRect(),
+    buttonX = button.x + (button.width / 2),
+    buttonY = button.y + (button.height / 2),
+    distMax = sketch.dist(buttonX, buttonY, window.innerWidth / 2, window.innerHeight);
 
     for(let i = 0; i < 500; i++) {
       stars.push(new Star());
@@ -17,11 +23,11 @@ export const starField = sketch => {
   };
 
   sketch.draw = function() {
-    sketch.background(0);
+    sketch.background('#132030');
     sketch.translate(sketch.width / 2, sketch.height / 2);
 
-    const distToButton = sketch.dist(buttonX, buttonY, sketch.mouseX, sketch.mouseY);
-    const distCapped   = distToButton > distMax ? distMax : distToButton;
+    distToButton = sketch.dist(buttonX, buttonY, sketch.mouseX, sketch.mouseY);
+    distCapped   = distToButton > distMax ? distMax : distToButton;
 
     speed = sketch.map(distCapped, 0, distMax, 30, 1);
 

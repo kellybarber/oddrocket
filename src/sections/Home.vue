@@ -25,6 +25,9 @@
     },
     mounted() {
       this.p5 = new window.p5(starField);
+    },
+    destroyed() {
+      this.p5.remove();
     }
   }
 </script>
