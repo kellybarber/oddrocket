@@ -1,19 +1,25 @@
 <template>
   <div id="home" class="section home">
     <div class="content-wrapper">
-      <div class="content-container">
+      <div ref="content" class="content-container">
         <ImageLoader
           :src-prop="content.logo.file.url"
           class="logo"
         />
-        <!--<h1 class="heading">{{ content.heading }}</h1>-->
-        <router-link
-          to="work"
+        <!--<router-link-->
+          <!--to="work"-->
+          <!--id="our-work-button"-->
+          <!--class="nav-button"-->
+        <!--&gt;-->
+          <!--Our Work-->
+        <!--</router-link>-->
+        <button
           id="our-work-button"
           class="nav-button"
+          @click="goToPage"
         >
           Our Work
-        </router-link>
+        </button>
       </div>
     </div>
   </div>
@@ -21,7 +27,8 @@
 
 <script>
   import { starField } from "../sketches";
-  import ImageLoader from '../components/ImageLoader';
+  import { TweenMax }  from 'gsap';
+  import ImageLoader   from '../components/ImageLoader';
 
   export default {
     components : { ImageLoader },
@@ -30,9 +37,34 @@
     },
     mounted() {
       this.p5 = new window.p5(starField);
+      this.animateIn();
+
     },
     destroyed() {
       this.p5.remove();
+    },
+    methods : {
+      goToPage() {
+        this.animateOut();
+        setTimeout(() => this.$router.push({ name : 'work' }), 1400);
+      },
+      animateIn() {
+        const { content } = this.$refs;
+
+        TweenMax.fromTo(content, 1.6, { autoAlpha : 0, scale : 0.75 }, {
+          autoAlpha : 1,
+          scale     : 1,
+        })
+      },
+      animateOut() {
+        const { content } = this.$refs;
+
+        TweenMax.to(content, 1.3, {
+          scale     : 2,
+          autoAlpha : 0,
+          ease      : Expo.easeIn
+        })
+      }
     }
   }
 </script>
@@ -72,13 +104,16 @@
 
   .nav-button {
     position: relative;
-    max-width: 10rem;
+    width: 20rem;
     font-size: 1.6rem;
     text-align: center;
-    padding: 2rem 6rem;
+    padding: 2rem 4rem;
     text-decoration: none;
     color: var(--white);
     border: 1px solid var(--white);
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
 
     background-size: 100% 200%;
     background-image: linear-gradient(to bottom, transparent 50%, white 50%);
