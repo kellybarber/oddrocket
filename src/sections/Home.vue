@@ -2,8 +2,11 @@
   <div id="home" class="section home">
     <div class="content-wrapper">
       <div class="content-container">
-        <h1 class="heading">{{ content.heading }}</h1>
-        <h3 class="subheading">{{ content.subheading }}</h3>
+        <ImageLoader
+          :src-prop="content.logo.file.url"
+          class="logo"
+        />
+        <!--<h1 class="heading">{{ content.heading }}</h1>-->
         <router-link
           to="work"
           id="our-work-button"
@@ -18,8 +21,10 @@
 
 <script>
   import { starField } from "../sketches";
+  import ImageLoader from '../components/ImageLoader';
 
   export default {
+    components : { ImageLoader },
     created() {
       this.content = this.$cms.data.home;
     },
@@ -44,30 +49,30 @@
   .content-wrapper {
     position: absolute;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
   }
   .content-container {
-    width: 56%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: var(--white);
     text-align: center;
   }
 
-  .heading {
-    font-size: 6.4rem;
-    margin-bottom: 3rem;
+  .logo {
+    margin: 0 auto 6rem;
   }
-  .subheading {
-    width: 80%;
-    margin: 0 auto 8rem;
-    font-size: 1.6rem;
+  .heading {
+    margin: 0 auto 4rem;
+    font-size: 1.8rem;
   }
 
   .nav-button {
     position: relative;
+    max-width: 10rem;
     font-size: 1.6rem;
     text-align: center;
     padding: 2rem 6rem;

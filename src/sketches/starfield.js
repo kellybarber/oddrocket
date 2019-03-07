@@ -29,7 +29,7 @@ export const starField = sketch => {
     distToButton = sketch.dist(buttonX, buttonY, sketch.mouseX, sketch.mouseY);
     distCapped   = distToButton > distMax ? distMax : distToButton;
 
-    speed = sketch.map(distCapped, 0, distMax, 30, 1);
+    speed = sketch.map(distCapped, 0, distMax, 80, 1);
 
     for(let i = 0; i < stars.length; i++) {
       stars[i].display();

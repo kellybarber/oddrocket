@@ -9,7 +9,7 @@
     <router-link to="/" class="nav-link">
       <ImageLoader
         :src-prop="content.logoLight.file.url"
-        class-prop="header-logo"
+        class="header-logo"
       />
     </router-link>
   </div>
@@ -44,6 +44,7 @@
     background-color: var(--off-black);
   }
   .home {
+    display: none;
     background-color: transparent;
   }
 

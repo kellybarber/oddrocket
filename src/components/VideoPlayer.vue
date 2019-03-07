@@ -31,9 +31,8 @@
     methods : {
       async getVideoLink() {
         if ((/vimeo/g).test(this.videoUrl)) {
-          const response = await fetch(`https://vimeo.com/api/oembed.json?url=${this.videoUrl}`);
-          const data     = await response.json();
-          return data.html.match(/src="(.*?)"(?:.*)/)[1];
+          const videoId = this.videoUrl.match(/vimeo.com\/(.*)/)[1];
+          return `https://player.vimeo.com/video/${videoId}`
         }
         if ((/youtube/g).test(this.videoUrl)) {
           const videoId = this.videoUrl.match(/v=(.*)/)[1];

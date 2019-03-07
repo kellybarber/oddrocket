@@ -3,7 +3,7 @@
     <ImageLoader
       :src-prop="hero"
       size="cover"
-      class-prop="card-image"
+      class="card-image"
     />
     <router-link :to="{ name: 'film', params: { id: film.id }}" class="card-overlay">
       <span class="card-title btn-standard">

@@ -1,15 +1,13 @@
 <template>
-  <div :class="classProp">
-    <transition appear name='fade'>
-      <img
-        v-show="isLoaded"
-        :src="srcProp"
-        :style="{ 'object-fit' : size }"
-        class="image"
-        @load="onImageLoad"
-      >
-    </transition>
-  </div>
+  <transition appear name='fade'>
+    <img
+      v-show="isLoaded"
+      :src="srcProp"
+      :style="{ 'object-fit' : size }"
+      class="image"
+      @load="onImageLoad"
+    >
+  </transition>
 </template>
 
 <script>
