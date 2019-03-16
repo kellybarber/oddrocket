@@ -74,14 +74,15 @@
     justify-content: center;
     align-items: center;
     height: 5rem;
-    background-color: var(--black);
+    margin: 2rem 0 4rem;
   }
   .filter-button {
     position: relative;
     margin: 0 3rem;
     padding: 0 0.5rem;
-    font-size: 1.2em;
-    color: var(--white);
+    font-size: 1.6em;
+    font-weight: 200;
+    color: var(--black);
     background: none;
     border: none;
     outline: none;
@@ -90,17 +91,21 @@
   .filter-button:not(:last-child)::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 50%;
     right: -3rem;
-    height: 100%;
+    height: 60%;
     width: 1px;
-    background-color: var(--white);
+    background-color: var(--black);
+    transform: translateY(-50%);
   }
 
   .film-grid__container {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(40rem, 1fr) );
     grid-auto-rows: 220px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding: 20px;
   }
 
 </style>

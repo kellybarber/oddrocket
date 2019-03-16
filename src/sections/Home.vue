@@ -6,13 +6,6 @@
           :src-prop="content.logo.file.url"
           class="logo"
         />
-        <!--<router-link-->
-          <!--to="work"-->
-          <!--id="our-work-button"-->
-          <!--class="nav-button"-->
-        <!--&gt;-->
-          <!--Our Work-->
-        <!--</router-link>-->
         <button
           id="our-work-button"
           class="nav-button"

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['main-header', `${$route.name}`]">
+  <header :class="['main-header', $route.name, { 'nav-mini' : isScrolled }]">
     <button
       class="nav-toggle"
       @click="$emit('toggleNavigation')"
@@ -8,11 +8,11 @@
     </button>
     <router-link to="/" class="nav-link">
       <ImageLoader
-        :src-prop="content.logoLight.file.url"
+        :src-prop="content.logoDark.file.url"
         class="header-logo"
       />
     </router-link>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -21,6 +21,15 @@
   export default {
     name       : 'MainHeader',
     components : { ImageLoader },
+    props      : {
+      isScrolled : {
+        type     : Boolean,
+        required : true
+      }
+    },
+    data() {
+      return {}
+    },
     computed : {
       logo() {
         const { logoLight } = this.content;
@@ -35,14 +44,11 @@
 
 <style scoped>
   .main-header {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: fixed;
     height: var(--header-height);
     width: 100%;
-    background-color: var(--off-black);
   }
+
   .home {
     display: none;
     background-color: transparent;
@@ -51,7 +57,7 @@
   .nav-toggle {
     height: 5rem;
     width: 5rem;
-    margin-left: 5rem;
+    margin: 2rem 0 0 5rem;
     border-radius: 50%;
     outline: none;
     z-index: 6;
@@ -61,7 +67,22 @@
     z-index: 6;
   }
   .header-logo {
-    width: 16rem;
-    margin-right: 5rem;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 40rem;
+    transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
+    /*transition: right .8s, top .8s, width .8s, height .8s;*/
   }
+
+  .nav-mini > .nav-link > .header-logo {
+    top: 1rem;
+    right: 2rem;
+    width: 12rem;
+    height: 6rem;
+    transform: none;
+    /*transition: right 1s, top 1s, width 1.4s;*/
+  }
+
 </style>

@@ -1,6 +1,7 @@
 import Home from '../sections/Home';
 import Work from '../sections/Work';
 import Film from '../sections/Film';
+import Contact from '../sections/Contact';
 
 export default [
   {
@@ -17,6 +18,11 @@ export default [
     path: '/film/:id',
     name: 'film',
     component: Film
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact
   },
   {
     path     : '*',

@@ -23,16 +23,11 @@
     props : {
       film : { type: Object, default: {} }
     },
-    data() {
-      return {}
-    },
     computed : {
       hero() {
         const { heroImage } = this.film;
         return heroImage ? heroImage.fields.file.url : '';
       }
-    },
-    mounted() {
     },
     methods : {
       ...mapMutations([
@@ -82,6 +77,7 @@
   }
   .card-overlay:hover > .card-title::after {
     width: 100%;
+    background-color: var(--white);
   }
 
   .card-title {
