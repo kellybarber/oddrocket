@@ -1,14 +1,15 @@
 <template>
-  <div class="section work">
+  <SectionWrapper>
     <FilmGrid :films="content.films" />
-  </div>
+  </SectionWrapper>
 </template>
 
 <script>
+  import SectionWrapper from '../wrappers/SectionWrapper';
   import FilmGrid from '../components/FilmGrid';
 
   export default {
-    components : { FilmGrid },
+    components : {SectionWrapper, FilmGrid },
     created() {
       this.content = this.$cms.data.work;
     }
