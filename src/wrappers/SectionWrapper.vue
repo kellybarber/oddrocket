@@ -18,6 +18,9 @@
         isScrolled : false
       }
     },
+    beforeRouteEnter(to, from, next) {
+      console.log(to, from, next)
+    },
     mounted() {
       window.addEventListener('scroll', this.handleScroll);
     },
@@ -34,15 +37,14 @@
 
 <style scoped>
   .section-wrapper {
-    height: 120vh;
+    height: 110vh;
   }
 
   .section {
     padding-top: var(--header-height);
-    transition: padding 0.6s ease-in;
+    transition: padding 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
   .section__scrolled {
     padding-top: var(--header-collapsed);
-    transition: padding 0.6s ease-in;
   }
 </style>

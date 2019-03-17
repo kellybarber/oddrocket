@@ -1,5 +1,5 @@
 <template>
-  <div class="section film">
+  <SectionWrapper class="film">
     <div class="video-wrapper">
       <VideoPlayer :video-url="filmData.videoLink" />
     </div>
@@ -15,15 +15,16 @@
       <div class="sidebar"></div>
       <div class="footer"></div>
     </div>
-  </div>
+  </SectionWrapper>
 </template>
 
 <script>
+  import SectionWrapper from '../wrappers/SectionWrapper';
   import VideoPlayer from "../components/VideoPlayer";
   import observer from '../helpers/observer';
 
   export default {
-    components : { VideoPlayer },
+    components : { SectionWrapper, VideoPlayer },
     computed : {
       filmData() {
         return this.$cms.getData('film').filter(film => (

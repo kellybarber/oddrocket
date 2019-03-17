@@ -1,5 +1,5 @@
 <template>
-  <SectionWrapper>
+  <SectionWrapper class="work">
     <FilmGrid :films="content.films" />
   </SectionWrapper>
 </template>

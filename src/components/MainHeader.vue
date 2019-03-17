@@ -49,11 +49,6 @@
     width: 100%;
   }
 
-  .home {
-    display: none;
-    background-color: transparent;
-  }
-
   .nav-toggle {
     height: 5rem;
     width: 5rem;
@@ -72,8 +67,7 @@
     right: 50%;
     transform: translate(50%, -50%);
     width: 40rem;
-    transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
-    /*transition: right .8s, top .8s, width .8s, height .8s;*/
+    transition: all 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
 
   .nav-mini > .nav-link > .header-logo {
@@ -82,7 +76,6 @@
     width: 12rem;
     height: 6rem;
     transform: none;
-    /*transition: right 1s, top 1s, width 1.4s;*/
   }
 
 </style>

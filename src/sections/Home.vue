@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class="section home">
+  <div id="home" class="home">
     <div class="content-wrapper">
       <div ref="content" class="content-container">
         <ImageLoader
