@@ -16,7 +16,7 @@
 <script>
   import MainHeader     from './components/MainHeader';
   import MainNavigation from './components/MainNavigation';
-  import { TweenMax }   from 'gsap';
+  import { fadeIn, fadeOut, slideUpIn, slideUpOut } from "./helpers/animations";
 
   export default {
     name: 'app',
@@ -24,44 +24,24 @@
     data() {
       return {
         showNav : false,
-        sectionEnterTransition : this.fadeIn,
-        sectionLeaveTransition : this.fadeOut
+        sectionEnterTransition : fadeIn,
+        sectionLeaveTransition : fadeOut,
+        fadeIn,
+        fadeOut
       }
     },
     watch : {
       $route(to) {
         switch(to.name) {
           case 'film' :
-            this.sectionEnterTransition = this.slideIn;
-            this.sectionLeaveTransition = this.slideOut;
+            this.sectionEnterTransition = slideUpIn;
+            this.sectionLeaveTransition = slideUpOut;
             break;
           default :
-            this.sectionEnterTransition = this.fadeIn;
-            this.sectionLeaveTransition = this.fadeOut;
+            this.sectionEnterTransition = fadeIn;
+            this.sectionLeaveTransition = fadeOut;
             break;
         }
-      }
-    },
-    methods : {
-      fadeIn(el) {
-        TweenMax.fromTo(el, 1.5, { autoAlpha : 0 }, { autoAlpha : 1 });
-      },
-      fadeOut(el) {
-        TweenMax.fromTo(el, 1.5, { autoAlpha : 1 }, { autoAlpha : 0 });
-      },
-      slideIn(el) {
-        TweenMax.fromTo(el, 1.5, { autoAlpha : 0, yPercent : 30 }, {
-          autoAlpha : 1,
-          yPercent  : 0,
-          ease      : Expo.easeOut
-        });
-      },
-      slideOut(el) {
-        TweenMax.fromTo(el, 1.5, { autoAlpha : 0, yPercent : 0 }, {
-          autoAlpha : 1,
-          yPercent  : 30,
-          ease      : Expo.easeOut
-        });
       }
     }
   }

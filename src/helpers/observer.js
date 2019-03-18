@@ -1,10 +1,10 @@
-export default (nodes, animation) => {
+export default (nodes, enterAnimation, leaveAnimation) => {
   const intersectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.intersectionRatio > 0) {
-        entry.target.classList.add(animation);
+        enterAnimation(entry.target);
       } else {
-        entry.target.classList.remove(animation);
+        leaveAnimation(entry.target);
       }
     });
   });

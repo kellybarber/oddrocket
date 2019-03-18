@@ -5,11 +5,11 @@
     </div>
     <div class="content-wrapper">
       <div ref="copyContainer" class="copy-container">
-        <h1 class="title copy">{{ filmData.title }}</h1>
-        <h2 class="description copy">{{ filmData.description }}</h2>
-        <h3 class="directors copy">Director: {{ filmData.directors }}</h3>
+        <h1 class="title">{{ filmData.title }}</h1>
+        <h2 class="description">{{ filmData.description }}</h2>
+        <h3 class="directors">Director: {{ filmData.directors }}</h3>
         <!--<h3 class="writers">Writers: {{ filmData.writers }}</h3>-->
-        <p class="main-copy copy">{{ filmData.mainText }}</p>
+        <p class="main-copy">{{ filmData.mainText }}</p>
       </div>
 
       <div class="sidebar"></div>
@@ -22,6 +22,7 @@
   import SectionWrapper from '../wrappers/SectionWrapper';
   import VideoPlayer from "../components/VideoPlayer";
   import observer from '../helpers/observer';
+  import { slideUpInText, slideUpOutText } from "../helpers/animations";
 
   export default {
     components : { SectionWrapper, VideoPlayer },
@@ -34,7 +35,7 @@
     },
     mounted() {
       const nodes = Object.values(this.$refs.copyContainer.children);
-      observer(nodes, 'text-enter');
+      observer(nodes, slideUpInText, slideUpOutText);
     }
   }
 </script>

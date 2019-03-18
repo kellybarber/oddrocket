@@ -15,7 +15,7 @@ export default [
     component: Work
   },
   {
-    path: '/film/:id',
+    path: '/work/film/:id',
     name: 'film',
     component: Film
   },
