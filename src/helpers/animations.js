@@ -23,7 +23,7 @@ export const slideUpOut = el => {
 };
 
 export const slideUpInText = el => {
-  TweenMax.fromTo(el, 1.5, { autoAlpha : 0, yPercent : 80 }, {
+  TweenMax.fromTo(el, 2, { autoAlpha : 0, yPercent : 80 }, {
     autoAlpha : 1,
     yPercent  : 0,
     ease      : Expo.easeOut
@@ -31,7 +31,7 @@ export const slideUpInText = el => {
 };
 
 export const slideUpOutText = el => {
-  TweenMax.fromTo(el, 1.5, { autoAlpha : 0, yPercent : 0 }, {
+  TweenMax.fromTo(el, 2, { autoAlpha : 0, yPercent : 0 }, {
     autoAlpha : 1,
     yPercent  : 80,
     ease      : Expo.easeOut

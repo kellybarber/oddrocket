@@ -3,7 +3,7 @@
     <div class="video-wrapper">
       <VideoPlayer :video-url="filmData.videoLink" />
     </div>
-    <div class="content-wrapper">
+
       <div ref="copyContainer" class="copy-container">
         <h1 class="title">{{ filmData.title }}</h1>
         <h2 class="description">{{ filmData.description }}</h2>
@@ -14,7 +14,7 @@
 
       <div class="sidebar"></div>
       <div class="footer"></div>
-    </div>
+
   </SectionWrapper>
 </template>
 
@@ -47,15 +47,12 @@
     background-color: var(--black);
   }
 
-  .content-wrapper {
-    padding: 0 10% 4%;
-    background-color: var(--white);
-  }
   .copy-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 10% 4%;
     background-color: var(--white);
   }
 

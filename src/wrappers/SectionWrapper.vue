@@ -1,8 +1,8 @@
 <template>
   <div class="section-wrapper">
-    <MainHeader :isScrolled="isScrolled"/>
+    <MainHeader :is-nav-mini="isNavMini"/>
     <slot name="nav-extension"></slot>
-    <section :class="['section', { 'section__scrolled' : isScrolled }]">
+    <section :class="['section', { 'section__scrolled' : isNavMini }]">
       <slot></slot>
     </section>
   </div>
@@ -18,14 +18,17 @@
         isScrolled : false
       }
     },
-    beforeRouteEnter(to, from, next) {
-      console.log(to, from, next)
-    },
     mounted() {
       window.addEventListener('scroll', this.handleScroll);
     },
     destroyed() {
       window.removeEventListener('scroll', this.handleScroll);
+    },
+    computed : {
+      isNavMini() {
+        const miniNavRoute = this.$route.name === 'film';
+        return this.isScrolled || miniNavRoute;
+      }
     },
     methods : {
       handleScroll() {

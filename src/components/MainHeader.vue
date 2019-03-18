@@ -1,5 +1,5 @@
 <template>
-  <header :class="['main-header', $route.name, { 'nav-mini' : isScrolled }]">
+  <header :class="['main-header', $route.name, { 'nav-mini' : isNavMini }]">
     <button
       class="nav-toggle"
       @click="$emit('toggleNavigation')"
@@ -22,13 +22,10 @@
     name       : 'MainHeader',
     components : { ImageLoader },
     props      : {
-      isScrolled : {
+      isNavMini : {
         type     : Boolean,
         required : true
       }
-    },
-    data() {
-      return {}
     },
     computed : {
       logo() {
@@ -47,6 +44,9 @@
     position: fixed;
     height: var(--header-height);
     width: 100%;
+  }
+  .film {
+    position: absolute;
   }
 
   .nav-toggle {
@@ -70,6 +70,10 @@
     transition: all 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
 
+  .nav-mini {
+    height: var(--header-collapsed);
+    transition: height 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+  }
   .nav-mini > .nav-link > .header-logo {
     top: 1rem;
     right: 2rem;
