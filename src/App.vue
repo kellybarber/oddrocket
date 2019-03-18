@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <!--<MainHeader @toggleNavigation="showNav = !showNav" />-->
-    <!--<MainNavigation v-if="showNav"/>-->
+    <transition appear @enter="slideInNav" @leave="slideOutNav">
+      <MainNavigation v-if="showNavigation"/>
+    </transition>
 
     <transition appear @enter="sectionEnterTransition" @leave="sectionLeaveTransition">
       <router-view />
@@ -16,22 +17,34 @@
 <script>
   import MainHeader     from './components/MainHeader';
   import MainNavigation from './components/MainNavigation';
-  import { fadeIn, fadeOut, slideUpIn, slideUpOut } from "./helpers/animations";
+  import { EventBus }   from "./utils/EventBus";
+  import {
+    fadeIn, fadeOut, slideUpIn, slideUpOut, slideInNav, slideOutNav
+  } from "./helpers/animations";
 
   export default {
     name: 'app',
     components: { MainHeader, MainNavigation },
     data() {
       return {
-        showNav : false,
+        showNavigation : false,
         sectionEnterTransition : fadeIn,
         sectionLeaveTransition : fadeOut,
         fadeIn,
-        fadeOut
+        fadeOut,
+        slideInNav,
+        slideOutNav
       }
+    },
+    mounted() {
+      EventBus.$on('toggleNavigation', () => {
+        this.showNavigation = !this.showNavigation;
+      });
     },
     watch : {
       $route(to) {
+        this.showNavigation = false;
+
         switch(to.name) {
           case 'film' :
             this.sectionEnterTransition = slideUpIn;
@@ -42,6 +55,8 @@
             this.sectionLeaveTransition = fadeOut;
             break;
         }
+
+        this.showNavigation = false;
       }
     }
   }

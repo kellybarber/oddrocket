@@ -2,10 +2,8 @@
   <header :class="['main-header', $route.name, { 'nav-mini' : isNavMini }]">
     <button
       class="nav-toggle"
-      @click="$emit('toggleNavigation')"
-    >
-      Nav
-    </button>
+      @click="toggleNavigation"
+    >Nav</button>
     <router-link to="/" class="nav-link">
       <ImageLoader
         :src-prop="content.logoDark.file.url"
@@ -17,6 +15,7 @@
 
 <script>
   import ImageLoader from './ImageLoader';
+  import { EventBus } from "../utils/EventBus";
 
   export default {
     name       : 'MainHeader',
@@ -27,14 +26,19 @@
         required : true
       }
     },
+    created() {
+      this.content = this.$cms.data.mainHeader;
+    },
     computed : {
       logo() {
         const { logoLight } = this.content;
         return logoLight ? logoLight.file.url : '';
       }
     },
-    created() {
-      this.content = this.$cms.data.mainHeader;
+    methods : {
+      toggleNavigation() {
+        EventBus.$emit('toggleNavigation');
+      }
     }
   }
 </script>

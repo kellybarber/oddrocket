@@ -37,3 +37,19 @@ export const slideUpOutText = el => {
     ease      : Expo.easeOut
   });
 };
+
+export const slideInNav = (el, done) => {
+  TweenMax.fromTo(el, 1.4, { xPercent : -100 }, {
+    xPercent  : 0,
+    ease      : Expo.easeOut,
+    onComplete : done
+  });
+  done();
+};
+export const slideOutNav = (el, done) => {
+  TweenMax.to(el, 0.6, {
+    xPercent  : -100,
+    ease      : Expo.easeIn,
+    onComplete : done
+  });
+};
