@@ -1,9 +1,5 @@
 <template>
   <div class="main-navigation">
-    <button
-      class="nav-toggle"
-      @click="toggleNavigation"
-    >&times;</button>
     <router-link
       v-for="(link, index) in routes"
       :key="index"
@@ -16,13 +12,7 @@
 </template>
 
 <script>
-  import { EventBus } from "../utils/EventBus";
-
   export default {
-    props: {},
-    data() {
-      return { }
-    },
     created() {
       this.routes = [
         { title : 'Home', route : '/' },
@@ -30,11 +20,6 @@
         { title : 'About', route : '/about' },
         { title : 'Contact', route : '/contact' }
       ];
-    },
-    methods : {
-      toggleNavigation() {
-        EventBus.$emit('toggleNavigation');
-      }
     }
   }
 </script>
@@ -49,19 +34,9 @@
     flex-direction: column;
     height: 100%;
     width: 300px;
-    padding: 0 5rem 0 5rem;
+    padding: 20rem 5rem 0 5rem;
     background-color: var(--white);
     z-index: 3;
-  }
-
-  .nav-toggle {
-    height: 5rem;
-    width: 5rem;
-    margin: 2rem 0 10rem;
-    font-size: 5rem;
-    font-weight: 200;
-    border: none;
-    outline: none;
   }
 
   .nav-link {

@@ -1,9 +1,5 @@
 <template>
   <header :class="['main-header', $route.name, { 'nav-mini' : isNavMini }]">
-    <button
-      class="nav-toggle"
-      @click="toggleNavigation"
-    >Nav</button>
     <router-link to="/" class="nav-link">
       <ImageLoader
         :src-prop="content.logoDark.file.url"
@@ -14,7 +10,7 @@
 </template>
 
 <script>
-  import ImageLoader from './ImageLoader';
+  import ImageLoader  from './ImageLoader';
   import { EventBus } from "../utils/EventBus";
 
   export default {
@@ -51,15 +47,6 @@
   }
   .film {
     position: absolute;
-  }
-
-  .nav-toggle {
-    height: 5rem;
-    width: 5rem;
-    margin: 2rem 0 0 5rem;
-    border-radius: 50%;
-    outline: none;
-    z-index: 6;
   }
 
   .nav-link {

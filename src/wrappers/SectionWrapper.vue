@@ -40,7 +40,7 @@
 
 <style scoped>
   .section-wrapper {
-    height: 110vh;
+    min-height: 110vh;
   }
 
   .section {

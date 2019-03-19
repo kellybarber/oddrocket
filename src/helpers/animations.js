@@ -23,17 +23,17 @@ export const slideUpOut = el => {
 };
 
 export const slideUpInText = el => {
-  TweenMax.fromTo(el, 2, { autoAlpha : 0, yPercent : 80 }, {
+  TweenMax.fromTo(el, 2, { autoAlpha : 0, y : 60 }, {
     autoAlpha : 1,
-    yPercent  : 0,
+    y         : 0,
     ease      : Expo.easeOut
   });
 };
 
 export const slideUpOutText = el => {
-  TweenMax.fromTo(el, 2, { autoAlpha : 0, yPercent : 0 }, {
+  TweenMax.fromTo(el, 2, { autoAlpha : 0, y : 0 }, {
     autoAlpha : 1,
-    yPercent  : 80,
+    y         : 60,
     ease      : Expo.easeOut
   });
 };
@@ -53,3 +53,4 @@ export const slideOutNav = (el, done) => {
     onComplete : done
   });
 };
+

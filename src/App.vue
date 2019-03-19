@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <NavigationToggle v-model="showNavigation" />
+
     <transition appear @enter="slideInNav" @leave="slideOutNav">
       <MainNavigation v-if="showNavigation"/>
     </transition>
@@ -15,16 +17,17 @@
 </template>
 
 <script>
-  import MainHeader     from './components/MainHeader';
-  import MainNavigation from './components/MainNavigation';
-  import { EventBus }   from "./utils/EventBus";
+  import NavigationToggle from './components/NavigationToggle';
+  import MainHeader       from './components/MainHeader';
+  import MainNavigation   from './components/MainNavigation';
+  import { EventBus }     from "./utils/EventBus";
   import {
     fadeIn, fadeOut, slideUpIn, slideUpOut, slideInNav, slideOutNav
   } from "./helpers/animations";
 
   export default {
     name: 'app',
-    components: { MainHeader, MainNavigation },
+    components: { NavigationToggle, MainHeader, MainNavigation },
     data() {
       return {
         showNavigation : false,
@@ -35,11 +38,6 @@
         slideInNav,
         slideOutNav
       }
-    },
-    mounted() {
-      EventBus.$on('toggleNavigation', () => {
-        this.showNavigation = !this.showNavigation;
-      });
     },
     watch : {
       $route(to) {
@@ -55,8 +53,6 @@
             this.sectionLeaveTransition = fadeOut;
             break;
         }
-
-        this.showNavigation = false;
       }
     }
   }

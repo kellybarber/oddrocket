@@ -58,7 +58,7 @@
 
   .title {
     text-align: center;
-    margin: 18rem 0 10rem;
+    margin: 18rem 0 8rem;
   }
   .description {
     margin-bottom: 1rem;
@@ -68,7 +68,7 @@
     column-gap: 16%;
     column-rule: 1px solid lightgray;
     width: 80%;
-    margin: 18rem 0 28rem;
+    margin: 17rem 0 24rem;
   }
 
 </style>
