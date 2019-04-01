@@ -1,22 +1,29 @@
 <template>
   <SectionWrapper>
-
+    <AboutSlice
+      v-for="(entry, index) in content"
+      :key="index"
+      :entry="entry"
+      :position="index % 2 === 0 ? 'left' : 'right'"
+      class="about-slice"
+    />
   </SectionWrapper>
 </template>
 
 <script>
-  import SectionWrapper from '../wrappers/SectionWrapper';
-  import AboutSlice     from '../components/AboutSlice';
+  import SectionWrapper from 'Wrappers/SectionWrapper';
+  import AboutSlice     from 'Components/AboutSlice';
 
   export default {
-    components : { SectionWrapper },
+    components : { SectionWrapper, AboutSlice },
     created() {
       this.content = this.$cms.data.about;
-      console.log(this.content);
     }
   }
 </script>
 
 <style scoped>
-
+  .about-slice:first-child {
+    margin-top: 10rem;
+  }
 </style>

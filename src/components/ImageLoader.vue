@@ -13,9 +13,8 @@
 <script>
   export default {
     props : {
-      srcProp   : { type : String, default : '' },
-      classProp : { type : String, default : '' },
-      size      : { type : String, default : 'contain' }
+      srcProp : { type : String, default : '' },
+      size    : { type : String, default : 'contain' }
     },
     data() {
       return { isLoaded: false }

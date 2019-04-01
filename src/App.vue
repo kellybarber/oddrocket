@@ -20,7 +20,6 @@
   import NavigationToggle from './components/NavigationToggle';
   import MainHeader       from './components/MainHeader';
   import MainNavigation   from './components/MainNavigation';
-  import { EventBus }     from "./utils/EventBus";
   import {
     fadeIn, fadeOut, slideUpIn, slideUpOut, slideInNav, slideOutNav
   } from "./helpers/animations";

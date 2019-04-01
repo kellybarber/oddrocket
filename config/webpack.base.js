@@ -1,7 +1,7 @@
-const { VueLoaderPlugin } = require('vue-loader')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader');
+const path                = require('path');
+const HtmlWebpackPlugin   = require('html-webpack-plugin');
+const CleanWebpackPlugin  = require('clean-webpack-plugin');
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
@@ -38,5 +38,12 @@ module.exports = {
       { root: path.resolve(__dirname, '..') }
     )
   ],
-  resolve: { extensions: [ '*', '.js', '.vue', '.css', '.scss' ] },
-}
+  resolve: {
+    alias : {
+      Sections   : path.resolve(__dirname, '../src/sections'),
+      Components : path.resolve(__dirname, '../src/components'),
+      Wrappers   : path.resolve(__dirname, '../src/wrappers')
+    },
+    extensions: [ '*', '.js', '.vue', '.css', '.scss' ]
+  }
+};
