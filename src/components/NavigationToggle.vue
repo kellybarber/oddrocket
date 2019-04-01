@@ -31,7 +31,6 @@
     methods : {
       toggleNavigation() {
         const nextState = !this.value;
-
         this.$emit('input', nextState);
         this.animateToggle(nextState);
       },
@@ -71,7 +70,7 @@
 <style scoped>
   .nav-toggle {
     position: fixed;
-    top: 2rem;
+    top: 1.3rem;
     left: 5rem;
     height: 8rem;
     width: 8rem;

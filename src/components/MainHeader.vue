@@ -66,11 +66,10 @@
     transition: height 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
   .nav-mini > .nav-link > .header-logo {
-    top: 1rem;
     right: 2rem;
     width: 12rem;
     height: 6rem;
-    transform: none;
+    transform: translateY(-50%);
   }
 
 </style>

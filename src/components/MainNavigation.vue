@@ -25,7 +25,8 @@
     },
     methods : {
       formatIndex(index) {
-        const paddedIndex = index < 10 ? `0${index}` : index;
+        const key = index + 1;
+        const paddedIndex = key < 10 ? `0${key}` : key;
         return `.${paddedIndex}`;
       }
     }

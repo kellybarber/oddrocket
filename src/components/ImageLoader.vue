@@ -12,8 +12,6 @@
 
 <script>
   export default {
-    name       : 'Home',
-    components : {},
     props : {
       srcProp   : { type : String, default : '' },
       classProp : { type : String, default : '' },

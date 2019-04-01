@@ -84,6 +84,8 @@ class ContentfulCMS {
         return await this.getEntryByType('work');
       case 'film':
         return await this.getEntriesByType('film');
+      case 'about':
+        return await this.getEntriesByType('about');
       case 'contact':
         return await this.getEntryByType('contact');
       default:
