@@ -25,4 +25,4 @@ module.exports = merge(base, {
     }),
     new EnvironmentPlugin(['CONTENTFUL_SPACE_ID', 'CONTENTFUL_ACCESS_TOKEN'])
   ]
-})
+});

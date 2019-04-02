@@ -8,7 +8,9 @@
       class="nav-link"
     >
       <span class="link-index">{{ formatIndex(index) }}</span>
-      <span class="link-title btn-standard">{{ link.title }}</span>
+      <span :class="['link-title', 'btn-standard', isButtonActive(link.title) ]">
+        {{ link.title }}
+      </span>
     </router-link>
   </div>
 </template>
@@ -28,6 +30,11 @@
         const key = index + 1;
         const paddedIndex = key < 10 ? `0${key}` : key;
         return `.${paddedIndex}`;
+      },
+      isButtonActive(link) {
+        return this.$route.name === link.toLowerCase() ?
+          'btn-standard-active' :
+          '';
       }
     }
   }
@@ -42,7 +49,7 @@
     height: 100%;
     width: 30rem;
     padding: 20rem 5rem 0 5rem;
-    background-color: #E6ECF2;
+    background-color: var(--main-blue);
     z-index: 3;
   }
 
@@ -52,7 +59,7 @@
     left: 12rem;
     height: 60%;
     width: 1px;
-    background-color: var(--black);
+    background-color: var(--white);
   }
 
   .nav-link {
@@ -61,11 +68,14 @@
     clear: both;
     font-size: 1.6em;
     font-weight: 200;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
   }
   .nav-link:not(:last-child) {
     margin-bottom: 2rem;
+  }
+  .link-title::after {
+    background-color: var(--white);
   }
 
   .link-index {

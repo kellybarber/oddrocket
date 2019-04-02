@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js --hot",
     "build": "webpack --config config/webpack.prod.js",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda"
   },
   "author": "Kelly Barber",
   "license": "MIT",

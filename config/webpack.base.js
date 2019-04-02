@@ -29,7 +29,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/assets/index.html',
+      template: './src/index.html',
       filename: './index.html',
       inject: false
     }),

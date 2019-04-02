@@ -67,7 +67,7 @@
   }
   .form-textarea {
     height: 10rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
   .form-input::placeholder,
   .form-textarea::placeholder {

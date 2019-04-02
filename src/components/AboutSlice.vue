@@ -37,6 +37,12 @@
   .right {
     flex-direction: row-reverse;
   }
+  .right > .text-wrapper {
+    padding-left: 0;
+  }
+  .left > .text-wrapper{
+    padding-right: 0;
+  }
 
   .headshot {
     width: 50%;
@@ -51,7 +57,7 @@
     font-size: 4rem;
   }
   .bio {
-    width: 75%;
+    width: 65%;
   }
 
 

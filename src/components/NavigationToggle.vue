@@ -19,10 +19,7 @@
 
   export default {
     props : {
-      value : {
-        type     : Boolean,
-        required : true
-      }
+      value : { type : Boolean, required : true }
     },
     mounted() {
       this.timeline = new TimelineMax({ paused : true });
