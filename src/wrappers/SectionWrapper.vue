@@ -27,6 +27,7 @@
     computed : {
       isNavMini() {
         const miniNavRoute = this.$route.name === 'film';
+        if (this.$route.name === 'contact') return false;
         return this.isScrolled || miniNavRoute;
       }
     },

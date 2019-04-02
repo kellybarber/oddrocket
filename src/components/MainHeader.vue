@@ -11,7 +11,6 @@
 
 <script>
   import ImageLoader  from './ImageLoader';
-  import { EventBus } from "../utils/EventBus";
 
   export default {
     name       : 'MainHeader',
@@ -30,18 +29,13 @@
         const { logoLight } = this.content;
         return logoLight ? logoLight.file.url : '';
       }
-    },
-    methods : {
-      toggleNavigation() {
-        EventBus.$emit('toggleNavigation');
-      }
     }
   }
 </script>
 
 <style scoped>
   .main-header {
-    position: fixed;
+    position: absolute;
     height: var(--header-height);
     width: 100%;
   }
@@ -62,6 +56,7 @@
   }
 
   .nav-mini {
+    position: fixed;
     height: var(--header-collapsed);
     transition: height 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
