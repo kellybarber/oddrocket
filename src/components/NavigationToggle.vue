@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="['nav-toggle', { 'nav-open' : value }]"
+    :class="['nav-toggle', { 'nav-alternate' : value }]"
     @click="toggleNavigation"
   >
     <svg class="toggle-svg">
@@ -33,12 +33,9 @@
         this.animateToggle(nextState);
       },
       animateToggle(nextState) {
-        console.log('NAV VALUE: ', nextState);
         if (nextState) {
-          console.log('NAV VALUE TRUE');
           this.timeline.play();
         } else {
-          console.log('NAV VALUE FALSE');
           this.timeline.reverse();
         }
       },
@@ -82,10 +79,6 @@
     outline: none;
     background: none;
   }
-  .nav-open .toggle-line {
-    stroke: var(--white);
-
-  }
 
   .toggle-svg {
     height: 100%;
@@ -97,7 +90,11 @@
   .toggle-line {
     stroke: var(--black);
     stroke-width: 2px;
+    transition: stroke .2s ease-out .6s;
   }
-
+  .nav-alternate .toggle-line {
+    stroke: var(--white);
+    transition: stroke .2s ease-out;
+  }
 
 </style>

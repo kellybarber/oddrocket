@@ -1,6 +1,6 @@
 <template>
   <SectionWrapper class="film">
-    <div class="video-wrapper">
+    <div ref="videoWrapper" class="video-wrapper">
       <VideoPlayer :video-url="filmData.videoLink" />
     </div>
 
@@ -26,6 +26,10 @@
 
   export default {
     components : { SectionWrapper, VideoPlayer },
+    mounted() {
+      const nodes = Object.values(this.$refs.copyContainer.children);
+      observer(nodes, slideUpInText, slideUpOutText);
+    },
     computed : {
       filmData() {
         return this.$cms.getData('film').filter(film => (
@@ -33,9 +37,7 @@
         ))[0];
       }
     },
-    mounted() {
-      const nodes = Object.values(this.$refs.copyContainer.children);
-      observer(nodes, slideUpInText, slideUpOutText);
+    methods : {
     }
   }
 </script>
