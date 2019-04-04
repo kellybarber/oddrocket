@@ -1,7 +1,7 @@
 {
-  "name": "vue-client-boilerplate",
+  "name": "oddrocket",
   "version": "1.0.0",
-  "description": "A simple vue client boilerplate",
+  "description": "OddRocket company site",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js --hot",
@@ -17,6 +17,8 @@
     "contentful": "^7.0.5",
     "express": "^4.16.3",
     "gsap": "^2.0.2",
+    "netlify-lambda": "^1.4.3",
+    "nodemailer": "^6.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

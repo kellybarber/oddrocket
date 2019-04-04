@@ -42,7 +42,8 @@ module.exports = {
     alias : {
       Sections   : path.resolve(__dirname, '../src/sections'),
       Components : path.resolve(__dirname, '../src/components'),
-      Wrappers   : path.resolve(__dirname, '../src/wrappers')
+      Wrappers   : path.resolve(__dirname, '../src/wrappers'),
+      Helpers    : path.resolve(__dirname, '../src/helpers')
     },
     extensions: [ '*', '.js', '.vue', '.css', '.scss' ]
   }

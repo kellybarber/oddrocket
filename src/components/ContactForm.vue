@@ -2,7 +2,7 @@
   <div class="form-container">
     <h2 class="heading">{{ content.heading }}</h2>
     <p class="subheading">{{ content.subheading }}</p>
-    <form class="form">
+    <form class="form" @submit="onSubmit">
       <input class="form-input" placeholder="Name" v-model="name">
       <input class="form-input" placeholder="Email" v-model="email">
       <textarea class="form-textarea" placeholder="Message" v-model="message"/>
@@ -12,6 +12,8 @@
 </template>
 
 <script>
+  import { post } from 'Helpers/requests';
+
   export default {
     props : {
       content : { type : Object, required : true }
@@ -21,6 +23,19 @@
         name    : '',
         email   : '',
         message : ''
+      }
+    },
+    methods : {
+      async onSubmit(e) {
+        e.preventDefault();
+
+        const data = await post('/api/contact', {
+          name    : this.name,
+          email   : this.email,
+          message : this.message
+        });
+
+        console.log(data);
       }
     }
   }
