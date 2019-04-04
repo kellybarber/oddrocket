@@ -1,10 +1,13 @@
 <template>
   <div class="form-wrapper">
     <slot></slot>
-    <ImageLoader
-      :src-prop="image.file.url"
-      class="form-image"
-    />
+    <div class="image-container">
+      <ImageLoader
+        :src-prop="image.file.url"
+        size="cover"
+        class="form-image"
+      />
+    </div>
   </div>
 </template>
 
@@ -22,8 +25,12 @@
 <style scoped>
   .form-wrapper {
     display: flex;
+    flex-wrap: wrap;
+  }
+  .image-container {
+    flex: 1 1 40rem;
   }
   .form-image {
-    width: 50%;
+    width: 100%;
   }
 </style>

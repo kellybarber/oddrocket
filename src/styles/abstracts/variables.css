@@ -8,6 +8,12 @@
 
   --black-rgba: 0, 0, 0;
 
+  /* Fonts */
+  --x-large: 3em;
+  --large: 3em;
+  --medium: 2em;
+  --small: 1em;
+
   /* Heights */
   --header-height: 35rem;
   --header-collapsed: 10rem;

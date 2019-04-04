@@ -46,8 +46,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
-    padding-top: 5vw;
+    flex: 1 1 40rem;
+    padding: 5vw 0;
   }
   .heading {
     font-weight: 200;
