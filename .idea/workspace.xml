@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29a10850-0f88-47da-b350-94e58bb1e641" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/NavigationToggle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationToggle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/animations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/helpers/observer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/observer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/Film.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/Film.vue" afterDir="false" />
     </list>
@@ -17,20 +19,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sections/Film.vue">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+            <state relative-caret-position="266">
+              <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sections/Film.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helpers/animations.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="541">
+              <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/helpers/observer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+            <state>
+              <caret column="37" selection-start-column="37" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -85,14 +105,12 @@
         <option value="$PROJECT_DIR$/src/utils/EventBus.js" />
         <option value="$PROJECT_DIR$/src/components/NavToggle.vue" />
         <option value="$USER_HOME$/Downloads/iconfinder_menu-alt_134216.svg" />
-        <option value="$PROJECT_DIR$/src/helpers/animations.js" />
         <option value="$PROJECT_DIR$/src/router/routes.js" />
         <option value="$PROJECT_DIR$/src/utils/ContentfulCMS.js" />
         <option value="$PROJECT_DIR$/src/components/ImageLoader.vue" />
         <option value="$PROJECT_DIR$/src/sections/About.vue" />
         <option value="$PROJECT_DIR$/src/sections/Contact.vue" />
         <option value="$PROJECT_DIR$/src/wrappers/SectionWrapper.vue" />
-        <option value="$PROJECT_DIR$/src/components/MainHeader.vue" />
         <option value="$PROJECT_DIR$/src/components/AboutSlice.vue" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/netlify.toml" />
@@ -109,8 +127,10 @@
         <option value="$PROJECT_DIR$/config/webpack.base.js" />
         <option value="$PROJECT_DIR$/src/components/MainNavigation.vue" />
         <option value="$PROJECT_DIR$/src/components/NavigationToggle.vue" />
-        <option value="$PROJECT_DIR$/src/sections/Film.vue" />
         <option value="$PROJECT_DIR$/src/helpers/observer.js" />
+        <option value="$PROJECT_DIR$/src/sections/Film.vue" />
+        <option value="$PROJECT_DIR$/src/helpers/animations.js" />
+        <option value="$PROJECT_DIR$/src/components/MainHeader.vue" />
       </list>
     </option>
   </component>
@@ -150,6 +170,12 @@
               <item name="oddrocket" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oddrocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oddrocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oddrocket" type="b2602c69:ProjectViewProjectNode" />
@@ -228,12 +254,12 @@
       <workItem from="1552927512848" duration="17054000" />
       <workItem from="1553884434234" duration="109000" />
       <workItem from="1553986187131" duration="10881000" />
-      <workItem from="1554236162265" duration="10190000" />
+      <workItem from="1554236162265" duration="10525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183979000" />
+    <option name="totallyTimeSpent" value="184314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -391,13 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/wrappers/SectionWrapper.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
@@ -416,13 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/animations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
@@ -602,6 +614,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/observer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sections/Film.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MainNavigation.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -609,17 +635,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sections/Film.vue">
+    <entry file="file://$PROJECT_DIR$/src/helpers/animations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        <state relative-caret-position="541">
+          <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/observer.js">
+    <entry file="file://$PROJECT_DIR$/src/components/MainHeader.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        <state relative-caret-position="266">
+          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
         </state>
       </provider>
     </entry>

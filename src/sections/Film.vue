@@ -22,13 +22,13 @@
   import SectionWrapper from '../wrappers/SectionWrapper';
   import VideoPlayer from "../components/VideoPlayer";
   import observer from '../helpers/observer';
-  import { slideUpInText, slideUpOutText } from "../helpers/animations";
+  import { slideUpInText } from "../helpers/animations";
 
   export default {
     components : { SectionWrapper, VideoPlayer },
     mounted() {
       const nodes = Object.values(this.$refs.copyContainer.children);
-      observer(nodes, slideUpInText, slideUpOutText);
+      observer(nodes, slideUpInText);
     },
     computed : {
       filmData() {

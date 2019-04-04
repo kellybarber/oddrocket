@@ -30,14 +30,6 @@ export const slideUpInText = el => {
   });
 };
 
-export const slideUpOutText = el => {
-  TweenMax.fromTo(el, 2, { autoAlpha : 0, y : 0 }, {
-    autoAlpha : 1,
-    y         : 60,
-    ease      : Expo.easeOut
-  });
-};
-
 export const slideInNav = (el, done) => {
   TweenMax.fromTo(el, 1.4, { xPercent : -100 }, {
     xPercent  : 0,

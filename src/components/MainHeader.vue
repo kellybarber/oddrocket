@@ -1,5 +1,5 @@
 <template>
-  <header :class="['main-header', $route.name, { 'nav-mini' : isNavMini }]">
+  <header :class="['main-header', $route.name, { 'main-header__mini' : isNavMini }]">
     <router-link to="/" class="nav-link">
       <ImageLoader
         :src-prop="content.logoDark.file.url"
@@ -38,14 +38,14 @@
     position: absolute;
     height: var(--header-height);
     width: 100%;
+    transition: height 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
-  .film {
-    position: absolute;
+  .main-header__mini {
+    position: fixed;
+    height: var(--header-collapsed);
+    transition: height 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
 
-  .nav-link {
-    z-index: 6;
-  }
   .header-logo {
     position: absolute;
     top: 50%;
@@ -54,17 +54,18 @@
     width: 40rem;
     transition: all 0.6s cubic-bezier(0.86, 0, 0.07, 1);
   }
-
-  .nav-mini {
-    position: fixed;
-    height: var(--header-collapsed);
-    transition: height 0.6s cubic-bezier(0.86, 0, 0.07, 1);
-  }
-  .nav-mini > .nav-link > .header-logo {
+  .main-header__mini > .nav-link > .header-logo {
     right: 2rem;
     width: 12rem;
     height: 6rem;
     transform: translateY(-50%);
+  }
+
+  .film {
+    position: absolute;
+  }
+  .nav-link {
+    z-index: 6;
   }
 
 </style>
