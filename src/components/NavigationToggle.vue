@@ -1,7 +1,6 @@
 <template>
   <button
-    v-if="$route.name !== 'home'"
-    class="nav-toggle"
+    :class="['nav-toggle', { 'nav-open' : value }]"
     @click="toggleNavigation"
   >
     <svg class="toggle-svg">
@@ -16,6 +15,7 @@
 
 <script>
   import { TimelineMax } from 'gsap';
+  import { EventBus }    from "Utils/EventBus";
 
   export default {
     props : {
@@ -24,6 +24,7 @@
     mounted() {
       this.timeline = new TimelineMax({ paused : true });
       this.loadToggleAnimations();
+      EventBus.$on('toggle-navigation', this.toggleNavigation)
     },
     methods : {
       toggleNavigation() {
@@ -32,9 +33,12 @@
         this.animateToggle(nextState);
       },
       animateToggle(nextState) {
+        console.log('NAV VALUE: ', nextState);
         if (nextState) {
+          console.log('NAV VALUE TRUE');
           this.timeline.play();
         } else {
+          console.log('NAV VALUE FALSE');
           this.timeline.reverse();
         }
       },
@@ -77,6 +81,10 @@
     border: none;
     outline: none;
     background: none;
+  }
+  .nav-open .toggle-line {
+    stroke: var(--white);
+
   }
 
   .toggle-svg {

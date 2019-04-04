@@ -6,6 +6,7 @@
       :key="index"
       :to="link.route"
       class="nav-link"
+      @click.native="toggleNavigation"
     >
       <span class="link-index">{{ formatIndex(index) }}</span>
       <span :class="['link-title', 'btn-standard', isButtonActive(link.title) ]">
@@ -16,6 +17,8 @@
 </template>
 
 <script>
+  import { EventBus } from "Utils/EventBus";
+
   export default {
     created() {
       this.routes = [
@@ -26,6 +29,9 @@
       ];
     },
     methods : {
+      toggleNavigation() {
+        EventBus.$emit('toggle-navigation')
+      },
       formatIndex(index) {
         const key = index + 1;
         const paddedIndex = key < 10 ? `0${key}` : key;

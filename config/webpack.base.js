@@ -43,7 +43,8 @@ module.exports = {
       Sections   : path.resolve(__dirname, '../src/sections'),
       Components : path.resolve(__dirname, '../src/components'),
       Wrappers   : path.resolve(__dirname, '../src/wrappers'),
-      Helpers    : path.resolve(__dirname, '../src/helpers')
+      Helpers    : path.resolve(__dirname, '../src/helpers'),
+      Utils      : path.resolve(__dirname, '../src/utils')
     },
     extensions: [ '*', '.js', '.vue', '.css', '.scss' ]
   }

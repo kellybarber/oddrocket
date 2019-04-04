@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavigationToggle v-model="showNavigation" />
+    <NavigationToggle v-if="showNavToggle" v-model="showNavigation" />
 
     <transition appear @enter="slideInNav" @leave="slideOutNav">
       <MainNavigation v-if="showNavigation"/>
@@ -52,6 +52,11 @@
             this.sectionLeaveTransition = fadeOut;
             break;
         }
+      }
+    },
+    computed : {
+      showNavToggle() {
+        return this.$route.name !== 'home'
       }
     }
   }
