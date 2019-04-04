@@ -21,14 +21,14 @@
 <script>
   import SectionWrapper from '../wrappers/SectionWrapper';
   import VideoPlayer from "../components/VideoPlayer";
-  import observer from '../helpers/observer';
+  import { groupObserver } from '../helpers/observer';
   import { slideUpInText } from "../helpers/animations";
 
   export default {
     components : { SectionWrapper, VideoPlayer },
     mounted() {
       const nodes = Object.values(this.$refs.copyContainer.children);
-      observer(nodes, slideUpInText);
+      groupObserver(nodes, slideUpInText);
     },
     computed : {
       filmData() {

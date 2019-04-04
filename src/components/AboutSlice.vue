@@ -1,5 +1,5 @@
 <template>
-  <div :class="['about-wrapper', position]">
+  <div ref="aboutWrapper" :class="['about-wrapper', position]">
     <ImageLoader
       :src-prop="entry.headshot.file.url"
       size="cover"
@@ -13,7 +13,9 @@
 </template>
 
 <script>
-  import ImageLoader from "./ImageLoader";
+  import ImageLoader     from "./ImageLoader";
+  import { observer }    from 'Helpers/observer';
+  import { TimelineMax } from 'gsap';
 
   export default {
     components : { ImageLoader },
@@ -22,6 +24,9 @@
       position : { type : String, required : true }
     },
     mounted() {
+      observer(this.$refs.aboutWrapper);
+    },
+    methods : {
 
     }
   }
