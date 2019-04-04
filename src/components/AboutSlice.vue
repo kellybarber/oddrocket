@@ -1,13 +1,14 @@
 <template>
   <div ref="aboutWrapper" :class="['about-wrapper', position]">
     <ImageLoader
+      ref="aboutImage"
       :src-prop="entry.headshot.file.url"
       size="cover"
       class="headshot"
     />
     <div class="text-wrapper">
-      <h2 class="name">{{ entry.name }}</h2>
-      <p class="bio">{{ entry.bio }}</p>
+      <h2 ref="aboutName" class="name">{{ entry.name }}</h2>
+      <p ref="aboutBio" class="bio">{{ entry.bio }}</p>
     </div>
   </div>
 </template>
@@ -16,6 +17,9 @@
   import ImageLoader     from "./ImageLoader";
   import { observer }    from 'Helpers/observer';
   import { TimelineMax } from 'gsap';
+  import {
+    slideUpIn
+  } from 'Helpers/animations';
 
   export default {
     components : { ImageLoader },
@@ -24,10 +28,34 @@
       position : { type : String, required : true }
     },
     mounted() {
-      observer(this.$refs.aboutWrapper);
+      this.timeline = new TimelineMax({ paused : true });
+      this.loadTimeline();
+      observer(this.$refs.aboutWrapper, this.animateInSlice);
     },
     methods : {
+      animateInSlice() {
+        this.timeline.play()
+      },
+      loadTimeline() {
+        const { aboutImage, aboutName, aboutBio } = this.$refs;
 
+        this.timeline
+          .fromTo(aboutImage.$el, 1.8, { autoAlpha : 0, yPercent : 30 }, {
+            autoAlpha : 1,
+            yPercent  : 0,
+            ease      : Expo.easeOut
+          })
+          .fromTo(aboutName, 1.5, { autoAlpha : 0, xPercent : -30 }, {
+            autoAlpha : 1,
+            xPercent  : 0,
+            ease      : Expo.easeOut
+          }, '-=1')
+          .fromTo(aboutBio, 1.5, { autoAlpha : 0, xPercent : -30 }, {
+            autoAlpha : 1,
+            xPercent  : 0,
+            ease      : Expo.easeOut
+          }, '-=0.8')
+      }
     }
   }
 </script>
