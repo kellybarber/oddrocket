@@ -1,11 +1,13 @@
 <template>
   <div ref="aboutWrapper" :class="['about-wrapper', position]">
-    <ImageLoader
-      ref="aboutImage"
-      :src-prop="entry.headshot.file.url"
-      size="cover"
-      class="headshot"
-    />
+    <div class="image-wrapper">
+      <ImageLoader
+        ref="aboutImage"
+        :src-prop="entry.headshot.file.url"
+        size="cover"
+        class="headshot"
+      />
+    </div>
     <div class="text-wrapper">
       <h2 ref="aboutName" class="name">{{ entry.name }}</h2>
       <p ref="aboutBio" class="bio">{{ entry.bio }}</p>
@@ -63,8 +65,9 @@
 <style scoped>
   .about-wrapper {
     display: flex;
-    height: 45vw;
-    width: 60vw;
+    flex-wrap: wrap;
+    min-height: 45vw;
+    width: 60%;
     margin: 0 auto 20rem;
   }
   .right {
@@ -77,11 +80,15 @@
     padding-right: 0;
   }
 
+  .image-wrapper {
+    flex: 1 1 28rem;
+  }
   .headshot {
-    width: 50%;
+    width: 100%;
   }
 
   .text-wrapper {
+    flex: 1 1 28rem;
     padding: 4rem 5rem 0;
   }
   .name {
