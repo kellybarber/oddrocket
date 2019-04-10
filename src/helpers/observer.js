@@ -2,7 +2,6 @@ export const observer = (node, animation) => {
   const intersectionObserver = new IntersectionObserver(entry => {
     const [ target ] = entry;
     if (target.intersectionRatio > 0) {
-      console.log(animation);
       animation()
     }
   });
