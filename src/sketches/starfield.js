@@ -1,21 +1,10 @@
 export const starField = sketch => {
   let stars = [],
-      speed,
-      button,
-      buttonX,
-      buttonY,
-      distMax,
-      distToButton,
-      distCapped;
+      speed;
 
   sketch.setup = function() {
     const canvas = sketch.createCanvas(window.innerWidth, window.innerHeight);
     canvas.parent('home');
-
-    button  = document.getElementById('our-work-button').getBoundingClientRect(),
-    buttonX = button.x + (button.width / 2),
-    buttonY = button.y + (button.height / 2),
-    distMax = sketch.dist(buttonX, buttonY, window.innerWidth / 2, window.innerHeight);
 
     for(let i = 0; i < 500; i++) {
       stars.push(new Star());
@@ -25,11 +14,7 @@ export const starField = sketch => {
   sketch.draw = function() {
     sketch.background('#132030');
     sketch.translate(sketch.width / 2, sketch.height / 2);
-
-    distToButton = sketch.dist(buttonX, buttonY, sketch.mouseX, sketch.mouseY);
-    distCapped   = distToButton > distMax ? distMax : distToButton;
-
-    speed = sketch.map(distCapped, 0, distMax, 80, 1);
+    speed = sketch.map(0.2, 0, sketch.width, 2, 20);
 
     for(let i = 0; i < stars.length; i++) {
       stars[i].display();

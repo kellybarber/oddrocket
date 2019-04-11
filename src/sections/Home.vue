@@ -7,7 +7,7 @@
           class="logo"
         />
         <button
-          id="our-work-button"
+          id="entry-button"
           class="nav-button"
           @click="goToPage"
         >

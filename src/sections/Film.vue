@@ -45,8 +45,8 @@
 <style scoped>
 
   .video-wrapper {
-    padding: 0 10%;
-    background-color: var(--black);
+    padding: 2% 10% 0;
+    /*background-color: var(--black);*/
   }
 
   .copy-container {
